@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skillCategories = [
+  {
+    category: '编程语言',
+    icon: '💻',
+    skills: [
+      { name: 'Python', level: '熟练' },
+      { name: 'C / C++', level: '基础' },
+      { name: 'SQL', level: '基础' },
+    ],
+  },
+  {
+    category: 'AI / LLM 工程',
+    icon: '🤖',
+    skills: [
+      { name: 'LangChain', level: '熟练' },
+      { name: 'RAG / 向量检索', level: '熟练' },
+      { name: 'ChromaDB / 向量库', level: '熟练' },
+      { name: 'Prompt Engineering', level: '熟练' },
+      { name: 'Dify', level: '了解' },
+      { name: 'FastAPI', level: '基础' },
+    ],
+  },
+  {
+    category: '自动化 / 脚本',
+    icon: '⚙️',
+    skills: [
+      { name: 'Playwright', level: '熟练' },
+      { name: '浏览器自动化', level: '熟练' },
+      { name: 'Skill 封装与开发', level: '熟练' },
+      { name: '网页数据抓取', level: '熟练' },
+      { name: '自动投递 / RPA', level: '熟练' },
+    ],
+  },
+  {
+    category: '工具 / 运维',
+    icon: '🛠️',
+    skills: [
+      { name: 'Docker', level: '熟练' },
+      { name: 'Linux / CentOS', level: '熟练' },
+      { name: 'SSH / 集群运维', level: '基础' },
+      { name: 'Git', level: '熟练' },
+      { name: 'LaTeX', level: '熟练' },
+    ],
+  },
+  {
+    category: '前端 / 小程序',
+    icon: '📱',
+    skills: [
+      { name: '微信小程序', level: '基础' },
+      { name: 'HTML / CSS', level: '基础' },
+      { name: 'Astro', level: '基础' },
+    ],
+  },
+];
+
+const levelColor = {
+  '熟练': 'var(--accent)',
+  '掌握': 'var(--accent)',
+  '基础': 'var(--text-muted)',
+  '了解': 'var(--text-muted)',
+};
+---
+
+<Layout title="技能 · 卢嘉淇">
+  <h1 style="margin-bottom: 8px;">技能栈</h1>
+  <p style="color: var(--text-muted); margin-bottom: 40px;">按方向分类，熟练度分为：熟练 / 基础 / 了解</p>
+
+  <div style="display: grid; gap: 28px;">
+    {skillCategories.map((cat) => (
+      <section class="about-section" style="margin-bottom: 0;">
+        <h2 style="font-size: 1.15rem; margin-bottom: 16px;">
+          <span style="margin-right: 8px;">{cat.icon}</span>{cat.category}
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
+          {cat.skills.map((skill) => (
+            <div style="
+              background: var(--bg-card);
+              border: 1px solid var(--border);
+              border-radius: 8px;
+              padding: 12px 16px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            ">
+              <span style="font-weight: 500; font-size: 0.95rem;">{skill.name}</span>
+              <span style="
+                font-size: 0.75rem;
+                padding: 2px 8px;
+                border-radius: 999px;
+                background: {levelColor[skill.level] === 'var(--accent)' ? 'var(--accent-light)' : '#f1f5f9'};
+                color: {levelColor[skill.level]};
+              ">{skill.level}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  @media (max-width: 640px) {
+    div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
