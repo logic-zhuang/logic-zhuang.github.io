@@ -3,40 +3,28 @@ import Layout from '../layouts/Layout.astro';
 
 const allProjects = [
   {
-    tag: '实习项目 · 算法调优',
-    version: '90+ versions',
-    title: '体育中考评测算法二次开发',
-    description: '基于开源体育评测算法项目完成本地化二次开发，面向跳远测距与跳绳计数场景。通过 90+ 个版本迭代调参，将跳远测距精度提升至 2 厘米，跳绳计数误差控制在 2 次以内，修复特殊场景识别误判。设计「调参 → AI 误差分析 → 自动生成新规则 → 回归验证」闭环，Git 版本快照管理，失败版本留档可回溯。交付工具已投入团队日常评测使用。',
-    highlight: {
-      title: '核心成果',
-      value: '跳远测距精度 2cm，跳绳计数误差 ≤2 次，90+ 版迭代调优',
-    },
-    tags: ['Python', '算法调优', 'OpenCV', '回归验证', 'Git', 'AI 误差分析'],
-    links: ['实习项目', '精度调优记录'],
+    tag: '微信小程序',
+    version: 'WeChat Mini Program',
+    title: '中石克二手物品交易小程序',
+    description: '基于微信小程序原生框架开发的校园二手交易平台。包含首页商品浏览、发布帖子、个人中心三个页面，支持商品发布与浏览交互。使用 WXML/WXSS/JavaScript 原生开发，TabBar 导航，绿色主题配色。',
+    tags: ['微信小程序', 'WXML/WXSS', 'JavaScript', '前端开发', 'TabBar'],
+    link: 'https://github.com/logic-zhuang/wechat-secondhand-market',
   },
   {
-    tag: '个人项目 · 自动化技能',
-    version: 'OpenDesk 分发',
-    title: 'web-rip / desktop-rip Agent 自动化技能',
-    description: '独立开发 web-rip、desktop-rip 两项 Agent 自动化技能，分别覆盖网页端与桌面应用端。基于 pywin32 COM 驱动 Word / WPS / Excel / Stata 桌面自动化；用 Playwright 完成网页菜单树扫描与操作审核。另开发求职等多类垂直场景技能，均已接入分发链路。打通「Skill 下载 → OpenDesk 使用」链路并交付。与当地统计局合作推进「九淇」软件自动化处理落地。',
-    highlight: {
-      title: '落地交付',
-      value: '两项技能已接入 OpenDesk 分发链路，与统计局合作推进软件自动化',
-    },
-    tags: ['Python', 'pywin32 / COM', 'Playwright', '桌面自动化', '网页自动化', 'Skill 开发'],
-    links: ['技能说明', '分发链路'],
+    tag: 'AI / LangChain 实验',
+    version: 'Personal Lab',
+    title: 'AI Agent Lab — LangChain 学习实验',
+    description: '个人 AI Agent 学习与实验仓库。包含 LangChain 学习笔记与自定义 Agent 脚本实践，探索大模型应用开发的工程化方法，从基础概念到实际应用逐步实践。',
+    tags: ['Python', 'LangChain', 'AI Agent', 'Prompt Engineering', 'LLM'],
+    link: 'https://github.com/logic-zhuang/ai-agent-lab',
   },
   {
-    tag: '培训项目 · 工程基础',
-    version: '2026.03 - 2026.06',
-    title: '导师创业小组 · 工程能力培训',
-    description: '系统学习 Git 分支管理与远程协作，FastAPI、MySQL 与前端基础；掌握 VS Code Copilot 提示词工程方法（全局 instruction、项目提示词、斜杠命令），并应用于后续算法实习，支撑 90+ 版快速迭代。',
-    highlight: {
-      title: '掌握能力',
-      value: 'Git 协作流程 / FastAPI 后端 / MySQL 数据库 / 提示词工程',
-    },
-    tags: ['Git', 'FastAPI', 'MySQL', '提示词工程', '前端基础'],
-    links: ['学习记录'],
+    tag: '数据分析 / 优化',
+    version: 'Course Project',
+    title: '医保统筹基金收支预测与最优缴费标准研究',
+    description: '基于新疆医保数据，构建基金收支预测模型，研究最优缴费标准。包含数据处理、预测分析、优化求解与报告生成全流程，使用 Python 进行数据处理与建模分析。',
+    tags: ['Python', '数据分析', '预测模型', '优化求解', 'Pandas', 'NumPy'],
+    link: 'https://github.com/logic-zhuang/medical-insurance-prediction',
   },
 ];
 ---
@@ -50,16 +38,9 @@ const allProjects = [
       </div>
       <h1 style="font-size: 36px;">项目</h1>
       <p class="subtitle" style="margin-top: 16px;">
-        算法调优与自动化工程实践，从实际需求出发，交付可落地的工具与脚本。
+        独立完成的个人项目与课程实践，从前端到数据分析的全栈探索。
       </p>
     </section>
-
-    <div style="display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap;">
-      <span class="tag" style="background: var(--primary); color: white;">全部 (3)</span>
-      <span class="tag">算法调优 (1)</span>
-      <span class="tag">自动化技能 (1)</span>
-      <span class="tag">工程基础 (1)</span>
-    </div>
 
     <div class="project-grid" style="grid-template-columns: 1fr;">
       {allProjects.map((p) => (
@@ -70,15 +51,11 @@ const allProjects = [
           </div>
           <h3>{p.title}</h3>
           <p class="card-desc">{p.description}</p>
-          <div class="card-highlight">
-            <div class="hl-title">✦ {p.highlight.title}</div>
-            <div class="hl-value">{p.highlight.value}</div>
-          </div>
           <div class="card-tags">
             {p.tags.map((t) => <span>{t}</span>)}
           </div>
           <div class="card-footer">
-            {p.links.map((l) => <a href="#">{l}</a>)}
+            <a href={p.link} target="_blank" rel="noopener">查看 GitHub 仓库 →</a>
           </div>
         </div>
       ))}

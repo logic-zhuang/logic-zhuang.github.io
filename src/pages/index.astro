@@ -3,40 +3,28 @@ import Layout from '../layouts/Layout.astro';
 
 const featuredProjects = [
   {
-    tag: '实习项目 · 算法调优',
-    version: '90+ versions',
-    title: '体育中考评测算法二次开发',
-    description: '基于开源体育评测算法项目完成本地化二次开发，面向跳远测距与跳绳计数场景。通过 90+ 个版本迭代调参，将跳远测距精度提升至 2 厘米，跳绳计数误差控制在 2 次以内，修复特殊场景识别误判，交付工具已投入团队日常评测使用。',
-    highlight: {
-      title: '工程闭环',
-      value: '设计「调参 → AI 误差分析 → 自动生成新规则 → 回归验证」闭环，Git 版本快照管理，失败版本留档可回溯',
-    },
-    tags: ['Python', '算法调优', 'OpenCV', '回归验证', 'Git'],
-    links: ['实习项目', '精度调优记录'],
+    tag: '微信小程序',
+    version: 'WeChat Mini Program',
+    title: '中石克二手物品交易小程序',
+    description: '基于微信小程序原生框架开发的校园二手交易平台。包含首页商品浏览、发布帖子、个人中心三个页面，支持商品发布与浏览交互。',
+    tags: ['微信小程序', 'WXML/WXSS', 'JavaScript', '前端开发'],
+    link: 'https://github.com/logic-zhuang/wechat-secondhand-market',
   },
   {
-    tag: '个人项目 · 自动化技能',
-    version: 'OpenDesk 分发',
-    title: 'web-rip / desktop-rip Agent 自动化技能',
-    description: '独立开发两项 Agent 自动化技能，分别覆盖网页端与桌面应用端。基于 pywin32 COM 驱动 Word / WPS / Excel / Stata 桌面自动化；用 Playwright 完成网页菜单树扫描与操作审核。已打通「Skill 下载 → OpenDesk 使用」链路并交付。',
-    highlight: {
-      title: '落地合作',
-      value: '与当地统计局合作推进「九淇」软件自动化处理落地',
-    },
-    tags: ['Python', 'pywin32 / COM', 'Playwright', '桌面自动化', 'Skill 开发'],
-    links: ['技能说明', '分发链路'],
+    tag: 'AI / LangChain 实验',
+    version: 'Personal Lab',
+    title: 'AI Agent Lab — LangChain 学习实验',
+    description: '个人 AI Agent 学习与实验仓库，包含 LangChain 学习笔记与自定义 Agent 脚本实践，探索大模型应用开发的工程化方法。',
+    tags: ['Python', 'LangChain', 'AI Agent', 'Prompt Engineering'],
+    link: 'https://github.com/logic-zhuang/ai-agent-lab',
   },
   {
-    tag: '培训项目 · 工程基础',
-    version: '2026.03 - 2026.06',
-    title: '导师创业小组 · 工程能力培训',
-    description: '系统学习 Git 分支管理与远程协作，FastAPI、MySQL 与前端基础；掌握 VS Code Copilot 提示词工程方法（全局 instruction、项目提示词、斜杠命令），并应用于后续算法实习，支撑 90+ 版快速迭代。',
-    highlight: {
-      title: '掌握能力',
-      value: 'Git 协作 / FastAPI 后端 / MySQL 数据库 / 提示词工程',
-    },
-    tags: ['Git', 'FastAPI', 'MySQL', '提示词工程', '前端基础'],
-    links: ['学习记录'],
+    tag: '数据分析 / 优化',
+    version: 'Course Project',
+    title: '医保统筹基金收支预测与最优缴费标准研究',
+    description: '基于新疆医保数据，构建基金收支预测模型，研究最优缴费标准。包含数据处理、预测分析、优化求解与报告生成全流程。',
+    tags: ['Python', '数据分析', '预测模型', '优化求解', 'Pandas'],
+    link: 'https://github.com/logic-zhuang/medical-insurance-prediction',
   },
 ];
 
@@ -46,9 +34,9 @@ const experiences = [
     org: '幺米动态科技有限公司 · 体育中考自动化评测系统',
     period: '2026.07 - 2026.08',
     points: [
-      '针对体育中考评测需求，基于开源算法项目完成本地化二次开发，交付工具已投入团队日常评测使用。',
-      '持续迭代 90+ 个版本，将跳远测距精度提升至 2 厘米、跳绳计数误差控制在 2 次以内，修复特殊场景识别误判。',
-      '设计「调参 → AI 误差分析 → 自动生成新规则 → 回归验证」闭环，配合 Git 版本快照管理，失败版本留档可回溯。',
+      '基于开源体育评测算法项目完成本地化二次开发，交付工具已投入团队日常评测使用。',
+      '持续迭代 90+ 个版本，将跳远测距精度提升至 2 厘米、跳绳计数误差控制在 2 次以内。',
+      '设计「调参 → AI 误差分析 → 自动生成新规则 → 回归验证」闭环，Git 版本快照管理。',
     ],
     tags: ['Python', '算法调优', 'Git', '回归测试'],
   },
@@ -61,20 +49,20 @@ const experiences = [
     <section class="hero">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>正在寻找 AI 应用开发 / 数据分析 / 算法工程实习机会</span>
+        <span>正在寻找 AI 应用开发 / 数据分析实习机会</span>
       </div>
       <h1>你好，我是卢嘉淇</h1>
       <p class="subtitle">
-        中国石油大学（北京）克拉玛依校区 · 统计学专业本科在读。具备算法调优与自动化工程复合经历，擅长将实际需求转化为可落地的工具与脚本。
+        中国石油大学（北京）克拉玛依校区 · 统计学专业本科在读。具备算法调优与自动化工程经历，擅长将实际需求转化为可落地的工具与项目。
       </p>
       <div class="tags">
         <span class="tag">Python</span>
         <span class="tag">SQL / MySQL</span>
-        <span class="tag">Playwright</span>
-        <span class="tag">pywin32 / COM</span>
         <span class="tag">Pandas / NumPy</span>
+        <span class="tag">LangChain / AI Agent</span>
+        <span class="tag">微信小程序</span>
         <span class="tag">Git</span>
-        <span class="tag">FastAPI</span>
+        <span class="tag">Playwright</span>
         <span class="tag">统计分析</span>
       </div>
       <div class="hero-actions">
@@ -93,7 +81,7 @@ const experiences = [
       <div class="section-header">
         <div>
           <h2 class="section-title">精选项目</h2>
-          <p class="section-desc">算法调优与自动化工程实践</p>
+          <p class="section-desc">独立完成的个人项目与课程实践</p>
         </div>
         <a href="/projects/" class="section-link">
           <span>查看全部</span>
@@ -109,15 +97,11 @@ const experiences = [
             </div>
             <h3>{p.title}</h3>
             <p class="card-desc">{p.description}</p>
-            <div class="card-highlight">
-              <div class="hl-title">✦ {p.highlight.title}</div>
-              <div class="hl-value">{p.highlight.value}</div>
-            </div>
             <div class="card-tags">
               {p.tags.map((t) => <span>{t}</span>)}
             </div>
             <div class="card-footer">
-              {p.links.map((l) => <a href="#">{l}</a>)}
+              <a href={p.link} target="_blank" rel="noopener">GitHub →</a>
             </div>
           </div>
         ))}
