@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const featuredProjects = [
+  {
+    title: '个人知识库 AI 问答助手',
+    description: '基于 LangChain + RAG 架构的私有知识库问答系统，支持文档上传、语义检索与多轮对话。',
+    tags: ['Python', 'LangChain', 'RAG', 'Docker'],
+    link: '/projects/ai-knowledge-base',
+    highlight: true,
+  },
+  {
+    title: '微网与外部电网电力调控策略',
+    description: '2026 国赛 C 题：构建多目标优化模型，求解微电网与主网协同调度方案，获省级奖项。',
+    tags: ['数学建模', '优化算法', 'Python', 'LaTeX'],
+    link: '/projects/power-grid-optimization',
+  },
+  {
+    title: '通义千问应用挑战 — 冻土消融公众传播',
+    description: '基于通义千问大模型的冻土消融科普互动项目，负责内容策划与对话流程设计。',
+    tags: ['大模型应用', 'Prompt Engineering', '科普传播'],
+    link: '/projects/robot-competition',
+  },
+];
+
+const experiences = [
+  {
+    title: '驻地开发实习生',
+    org: '幺米动态科技有限公司',
+    period: '2025.07 — 2025.09',
+    desc: '参与企业内部系统开发与维护，负责需求对接、接口开发与测试文档编写。',
+  },
+];
+---
+
+<Layout title="你的名字 · AI 应用开发 & 统计学">
+  <!-- Hero -->
+  <section class="hero">
+    <h1>你好，我是 你的名字 👋</h1>
+    <p class="subtitle">
+      中国石油大学（北京）克拉玛依校区 · 统计学专业大三在读<br />
+      方向：AI 应用开发 / RAG 工程 / 数据建模
+    </p>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">LangChain</span>
+      <span class="tag">RAG</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Linux</span>
+      <span class="tag">数学建模</span>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section">
+    <h2 class="section-title">精选项目</h2>
+    <div class="project-grid">
+      {featuredProjects.map((p) => (
+        <ProjectCard {...p} />
+      ))}
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section">
+    <h2 class="section-title">实习经历</h2>
+    {experiences.map((exp) => (
+      <div class="experience-item">
+        <div class="exp-title">{exp.title}</div>
+        <div class="exp-org">{exp.org} · {exp.period}</div>
+        <p class="exp-desc">{exp.desc}</p>
+      </div>
+    ))}
+  </section>
+</Layout>

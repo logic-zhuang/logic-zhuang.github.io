@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  link?: string;
+  highlight?: boolean;
+}
+
+const { title, description, tags, link, highlight = false } = Astro.props;
+---
+
+<a href={link || '#'} class="project-card" style={highlight ? 'border-color: var(--accent);' : ''}>
+  <h3>{title}</h3>
+  <p class="project-desc">{description}</p>
+  <div class="project-meta">
+    {tags.map((tag) => <span>{tag}</span>)}
+  </div>
+</a>

@@ -1,0 +1,26 @@
+---
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { href: '/', label: '首页' },
+  { href: '/projects/', label: '项目' },
+  { href: '/about/', label: '关于我' },
+];
+---
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="/" class="nav-logo">你的名字</a>
+    <ul class="nav-links">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'active' : ''}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
