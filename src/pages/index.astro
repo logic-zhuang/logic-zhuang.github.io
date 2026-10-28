@@ -5,22 +5,22 @@ import ProjectCard from '../components/ProjectCard.astro';
 const featuredProjects = [
   {
     title: '个人知识库 AI 问答助手',
-    description: '基于 LangChain + RAG 架构的私有知识库问答系统。支持多格式文档解析、语义切分、向量检索与多轮对话上下文管理，Docker 容器化部署。',
+    description: '基于 LangChain + RAG 架构的私有知识库问答系统。支持多格式文档解析、语义切分、向量检索与多轮对话管理，Docker 容器化部署。',
     tags: ['Python', 'LangChain', 'RAG', 'ChromaDB', 'FastAPI', 'Docker'],
     link: '/projects/ai-knowledge-base',
     highlight: true,
   },
   {
-    title: '微网协同调度优化模型',
-    description: '构建以日运行成本最小化为目标的线性规划模型，使用 Gurobi 求解器求解微电网与主网协同调度方案，完成灵敏度分析与结果验证。',
-    tags: ['线性规划', 'Gurobi', '多目标优化', 'Python', 'NumPy'],
-    link: '/projects/power-grid-optimization',
+    title: 'OpenDesk — 个人桌面工具集',
+    description: '面向个人使用场景开发的桌面自动化工具平台，集成浏览器操控、文件处理、桌面操作等常用能力，支持自定义扩展。',
+    tags: ['Python', '桌面自动化', '工具开发', '插件架构'],
+    link: '/projects/opendesk',
   },
   {
-    title: '大模型应用构建 — 冻土消融科普对话',
-    description: '基于通义千问 API 构建科普互动对话系统，设计知识图谱式问答路径，编写 Prompt 模板控制专业性与可读性平衡。',
-    tags: ['大模型 API', 'Prompt Engineering', '对话系统设计'],
-    link: '/projects/robot-competition',
+    title: '浏览器自动化 & Skill 制作',
+    description: '基于 Playwright 与 browser-use 开发浏览器自动化脚本，并封装为可复用的 Skill 模块，用于自动投递、网页数据抓取等场景。',
+    tags: ['Playwright', '浏览器自动化', 'Skill 封装', 'Python'],
+    link: '/projects/automation-skills',
   },
 ];
 
@@ -40,15 +40,15 @@ const experiences = [
     <h1>你好，我是 卢嘉淇 👋</h1>
     <p class="subtitle">
       中国石油大学（北京）克拉玛依校区 · 统计学专业大三在读<br />
-      方向：AI 应用开发 / RAG 工程 / 算法建模
+      方向：AI 应用开发 / RAG 工程 / 自动化工具
     </p>
     <div class="tags">
       <span class="tag">Python</span>
       <span class="tag">LangChain</span>
       <span class="tag">RAG</span>
+      <span class="tag">Playwright</span>
       <span class="tag">Docker</span>
-      <span class="tag">Linux</span>
-      <span class="tag">优化算法</span>
+      <span class="tag">桌面自动化</span>
     </div>
   </section>
 

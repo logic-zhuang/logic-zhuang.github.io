@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="浏览器自动化 & Skill 制作 · 卢嘉淇">
+  <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
+
+  <h1 style="margin-bottom: 8px;">浏览器自动化 & Skill 制作</h1>
+  <p style="color: var(--text-muted); margin-bottom: 32px;">个人项目 · 进行中</p>
+
+  <section class="about-section">
+    <h2>项目简介</h2>
+    <p>
+      基于 Playwright 与 browser-use 开发浏览器自动化脚本，应用于职位自动投递、
+      网页数据抓取等重复场景。并将通用的浏览器操作能力封装为可复用的 Skill 模块，
+      支持在不同任务中快速调用与组合。
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>应用场景</h2>
+    <ul style="padding-left: 20px; line-height: 2;">
+      <li>职位自动投递：自动遍历招聘网站、筛选匹配岗位、自动填写投递信息</li>
+      <li>网页数据抓取：批量采集网页内容，结构化输出为表格或文档</li>
+      <li>重复表单填写：处理需要反复提交相同信息的网页操作</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>技术栈</h2>
+    <div class="skill-list">
+      <span class="tag">Playwright</span>
+      <span class="tag">browser-use</span>
+      <span class="tag">浏览器自动化</span>
+      <span class="tag">Skill 封装</span>
+      <span class="tag">Python</span>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>Skill 化设计</h2>
+    <p>
+      将常见的浏览器操作（打开页面、元素定位、点击、填表、截图等）抽象为独立的 Skill 模块，
+      每个 Skill 有明确的输入输出接口，可像积木一样组合成完整的工作流。
+      这种设计避免了每个任务都从零写自动化脚本，提升了复用率。
+    </p>
+  </section>
+</Layout>

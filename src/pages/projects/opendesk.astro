@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="OpenDesk 桌面工具集 · 卢嘉淇">
+  <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
+
+  <h1 style="margin-bottom: 8px;">OpenDesk — 个人桌面工具集</h1>
+  <p style="color: var(--text-muted); margin-bottom: 32px;">个人项目 · 进行中</p>
+
+  <section class="about-section">
+    <h2>项目简介</h2>
+    <p>
+      OpenDesk 是一个面向个人使用场景的桌面自动化工具平台。
+      目标是把日常电脑上重复、繁琐的手动操作（文件整理、批量处理、网页操作、桌面交互等）
+      封装成可一键执行的工具，减少重复劳动。
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>核心能力</h2>
+    <ul style="padding-left: 20px; line-height: 2;">
+      <li>桌面应用操控：通过脚本控制桌面软件的打开、关闭、操作流程</li>
+      <li>文件批量处理：批量重命名、格式转换、分类整理等</li>
+      <li>浏览器集成：与自动化脚本联动，完成跨桌面的工作流</li>
+      <li>插件化架构：工具以模块形式挂载，支持自定义扩展</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>技术栈</h2>
+    <div class="skill-list">
+      <span class="tag">Python</span>
+      <span class="tag">桌面自动化</span>
+      <span class="tag">插件架构</span>
+      <span class="tag">跨进程通信</span>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>设计思路</h2>
+    <p>
+      采用"平台 + 插件"的架构，核心层负责工具注册、调度与状态管理，
+      具体工具以独立模块形式接入。这样新增工具不需要改动核心代码，
+      也方便根据个人需求灵活增减功能。
+    </p>
+  </section>
+</Layout>
