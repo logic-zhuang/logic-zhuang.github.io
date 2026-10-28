@@ -6,37 +6,39 @@ const skillCategories = [
     title: '编程语言',
     subtitle: 'LANGUAGES',
     skills: [
-      { name: 'Python', desc: '数据处理、自动化脚本、算法调优、机器学习应用。', level: 'proficient' },
+      { name: 'Python', desc: '数据处理、自动化脚本、算法调优、RAG 应用开发。', level: 'proficient' },
       { name: 'SQL / MySQL', desc: '复杂查询、多表关联、数据清洗与聚合统计。', level: 'proficient' },
+      { name: 'JavaScript', desc: '微信小程序开发、前端交互逻辑。', level: 'familiar' },
     ],
   },
   {
-    title: '数据科学与统计',
-    subtitle: 'DATA SCIENCE',
+    title: 'AI 与数据科学',
+    subtitle: 'AI & DATA SCIENCE',
     skills: [
+      { name: 'LangChain / RAG', desc: '知识库问答系统、向量检索、文档处理。', level: 'proficient' },
+      { name: 'ChromaDB', desc: '向量数据库、语义索引与检索。', level: 'proficient' },
       { name: 'Pandas / NumPy', desc: '数据处理与数值计算核心库。', level: 'proficient' },
-      { name: 'Matplotlib / pyecharts', desc: '数据可视化与图表绘制。', level: 'proficient' },
-      { name: 'scikit-learn', desc: '熟悉常见机器学习方法（回归、分类、聚类）。', level: 'familiar' },
+      { name: 'scikit-learn', desc: '常见机器学习方法（回归、分类、聚类）。', level: 'familiar' },
       { name: 'Stata / Excel', desc: '统计分析、回归建模、数理统计方法应用。', level: 'proficient' },
     ],
   },
   {
-    title: '自动化工程',
-    subtitle: 'AUTOMATION',
+    title: '自动化与工程',
+    subtitle: 'AUTOMATION & DEV',
     skills: [
-      { name: 'Playwright', desc: '网页自动化、元素定位、菜单树扫描与操作审核。', level: 'proficient' },
+      { name: 'Playwright', desc: '网页自动化、元素定位、操作审核。', level: 'proficient' },
       { name: 'pywin32 / COM', desc: 'Office / WPS / Excel / Stata 桌面应用自动化驱动。', level: 'proficient' },
-      { name: 'pytest', desc: '自动化测试与回归验证。', level: 'familiar' },
+      { name: 'Linux', desc: '命令行操作、服务器配置、环境部署、Shell 脚本。', level: 'familiar' },
+      { name: 'Git', desc: '分支管理、远程协作、版本快照管理。', level: 'proficient' },
+      { name: 'FastAPI', desc: '后端 API 开发基础。', level: 'familiar' },
     ],
   },
   {
-    title: '开发基础',
-    subtitle: 'DEVELOPMENT',
+    title: '前端开发',
+    subtitle: 'FRONTEND',
     skills: [
-      { name: 'Git', desc: '分支管理、远程协作、版本快照管理。', level: 'proficient' },
-      { name: 'FastAPI', desc: '后端 API 开发基础。', level: 'familiar' },
-      { name: 'MySQL', desc: '数据库设计与操作。', level: 'familiar' },
-      { name: '前端基础', desc: 'HTML / CSS / JavaScript 基础。', level: 'basic' },
+      { name: '微信小程序', desc: 'WXML / WXSS / JavaScript，原生小程序开发。', level: 'proficient' },
+      { name: 'HTML / CSS', desc: '页面结构与样式设计。', level: 'proficient' },
     ],
   },
 ];
@@ -51,7 +53,7 @@ const skillCategories = [
       </div>
       <h1 style="font-size: 36px;">技能栈</h1>
       <p class="subtitle" style="margin-top: 16px;">
-        统计学背景 + 自动化工程能力，覆盖数据处理、算法调优与工具开发全链路。
+        统计学背景 + AI 应用开发能力，覆盖数据分析、RAG 系统、自动化工程与前端开发全链路。
       </p>
       <div class="skills-legend" style="margin-top: 20px;">
         <span class="legend-item"><span class="legend-dot proficient"></span>熟练 · 主力使用</span>
