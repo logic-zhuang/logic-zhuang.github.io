@@ -2,10 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="微网与外部电网电力调控策略 · 你的名字">
+<Layout title="微网协同调度优化模型 · 卢嘉淇">
   <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
 
-  <h1 style="margin-bottom: 8px;">微网与外部电网电力调控策略</h1>
+  <h1 style="margin-bottom: 8px;">微网协同调度优化模型</h1>
   <p style="color: var(--text-muted); margin-bottom: 32px;">2026 全国大学生数学建模竞赛 · C 题</p>
 
   <section class="about-section">
@@ -20,9 +20,9 @@ import Layout from '../../layouts/Layout.astro';
     <h2>建模思路</h2>
     <ul style="padding-left: 20px; line-height: 2;">
       <li>建立以 <strong>日运行成本最小化</strong> 为目标的线性规划模型</li>
-      <li>约束条件涵盖功率平衡、储能充放电上下限、光伏出力限制等</li>
-      <li>使用 <strong>Gurobi</strong> 求解器进行数值求解</li>
-      <li>通过灵敏度分析讨论电价波动、光伏渗透率对调度结果的影响</li>
+      <li>约束条件涵盖功率平衡、储能充放电上下限、光伏出力限制、联络线功率限制等</li>
+      <li>使用 <strong>Gurobi</strong> 求解器进行数值求解，对比不同场景下的调度策略差异</li>
+      <li>通过灵敏度分析讨论电价波动、光伏渗透率、储能容量配置对调度结果的影响</li>
       <li>论文采用 LaTeX 规范排版，符合 GB/T 7714 参考文献格式</li>
     </ul>
   </section>
@@ -34,6 +34,7 @@ import Layout from '../../layouts/Layout.astro';
       <span class="tag">Gurobi</span>
       <span class="tag">线性规划</span>
       <span class="tag">多目标优化</span>
+      <span class="tag">灵敏度分析</span>
       <span class="tag">LaTeX</span>
       <span class="tag">Pandas / NumPy</span>
     </div>
@@ -41,6 +42,6 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="about-section">
     <h2>我的角色</h2>
-    <p>负责模型构建、编程求解与论文主体撰写，完成从问题分析到结果验证的全流程。</p>
+    <p>负责模型构建、编程求解与论文主体撰写，完成从问题分析、数学建模、算法实现到结果验证的全流程。</p>
   </section>
 </Layout>

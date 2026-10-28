@@ -2,11 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="个人知识库 AI 问答助手 · 你的名字">
+<Layout title="个人知识库 AI 问答助手 · 卢嘉淇">
   <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
 
   <h1 style="margin-bottom: 8px;">个人知识库 AI 问答助手</h1>
-  <p style="color: var(--text-muted); margin-bottom: 32px;">2025 · 个人项目</p>
+  <p style="color: var(--text-muted); margin-bottom: 32px;">2025 · 个人项目 · 进行中</p>
 
   <section class="about-section">
     <h2>项目简介</h2>
@@ -14,6 +14,7 @@ import Layout from '../../layouts/Layout.astro';
       一个基于 <strong>LangChain + RAG（检索增强生成）</strong>架构的私有知识库问答系统。
       用户上传 PDF、Markdown 等格式的文档后，系统自动进行文本切分、向量化存储，
       并通过语义检索 + 大模型生成的方式回答用户关于文档内容的提问。
+      目标是构建一个不依赖外部云服务、可本地运行的私有知识助手。
     </p>
   </section>
 
@@ -26,6 +27,7 @@ import Layout from '../../layouts/Layout.astro';
       <span class="tag">FastAPI</span>
       <span class="tag">Docker</span>
       <span class="tag">Embedding 模型</span>
+      <span class="tag">Rerank</span>
     </div>
   </section>
 
@@ -33,15 +35,25 @@ import Layout from '../../layouts/Layout.astro';
     <h2>核心功能</h2>
     <ul style="padding-left: 20px; line-height: 2;">
       <li>多格式文档上传与自动解析（PDF / Markdown / TXT）</li>
-      <li>文本智能切分与 Embedding 向量化，持久化存储于 ChromaDB</li>
-      <li>语义相似度检索，支持 Top-K 片段召回</li>
+      <li>文本智能切分（按段落 + 语义边界），Embedding 向量化后持久化存储于 ChromaDB</li>
+      <li>语义相似度检索，支持 Top-K 片段召回，可配置 Rerank 重排序优化精度</li>
       <li>多轮对话上下文管理，基于历史记录动态调整 Prompt</li>
+      <li>FastAPI 提供 RESTful 接口，前端可扩展</li>
       <li>Docker 容器化部署，一键启动服务</li>
     </ul>
   </section>
 
   <section class="about-section">
+    <h2>技术选型思考</h2>
+    <p>
+      向量库选择 ChromaDB 而非 FAISS，原因是 ChromaDB 原生支持持久化与元数据过滤，
+      更适合中小规模本地知识库场景；Embedding 模型选用开源轻量模型，避免对外部 API 的依赖。
+      整体架构以"本地优先、可离线运行"为设计目标。
+    </p>
+  </section>
+
+  <section class="about-section">
     <h2>项目链接</h2>
-    <p>🔗 GitHub: <a href="https://github.com/your-username/ai-knowledge-base" target="_blank" rel="noopener">github.com/your-username/ai-knowledge-base</a></p>
+    <p>🔗 GitHub: <a href="https://github.com/logic-zhuang" target="_blank" rel="noopener">github.com/logic-zhuang</a>（仓库待整理后公开）</p>
   </section>
 </Layout>

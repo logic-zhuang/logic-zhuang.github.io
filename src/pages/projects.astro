@@ -5,27 +5,27 @@ import ProjectCard from '../components/ProjectCard.astro';
 const allProjects = [
   {
     title: '个人知识库 AI 问答助手',
-    description: '基于 LangChain + RAG 架构的私有知识库问答系统。支持 PDF/Markdown 文档上传、向量语义检索、多轮对话上下文管理，部署于 Docker 容器。',
-    tags: ['Python', 'LangChain', 'RAG', 'ChromaDB', 'Docker', 'FastAPI'],
+    description: '基于 LangChain + RAG 架构的私有知识库问答系统。支持 PDF/Markdown 文档解析、语义切分、ChromaDB 向量存储、Top-K 语义召回、多轮对话上下文管理，Docker 容器化部署。',
+    tags: ['Python', 'LangChain', 'RAG', 'ChromaDB', 'FastAPI', 'Docker'],
     link: '/projects/ai-knowledge-base',
     highlight: true,
   },
   {
-    title: '微网与外部电网电力调控策略',
-    description: '2026 年全国大学生数学建模竞赛 C 题。构建以经济性与可靠性为双目标的优化模型，使用 Python + Gurobi 求解微电网与主网协同调度方案，论文采用 LaTeX 排版。',
-    tags: ['数学建模', '多目标优化', 'Gurobi', 'Python', 'LaTeX'],
+    title: '微网协同调度优化模型',
+    description: '2026 国赛 C 题。构建以日运行成本最小化为目标的线性规划模型，约束涵盖功率平衡、储能充放电上下限、光伏出力限制。使用 Gurobi 求解，完成电价波动与光伏渗透率的灵敏度分析。',
+    tags: ['线性规划', 'Gurobi', '多目标优化', 'Python', 'LaTeX'],
     link: '/projects/power-grid-optimization',
   },
   {
-    title: '通义千问应用挑战 — 冻土消融公众传播',
-    description: '第十九届先进机器人及仿真技术大赛通义千问应用挑战组参赛项目。面向公众设计冻土消融科普互动对话，负责 Prompt 工程、分镜脚本与传播方案策划。',
-    tags: ['大模型应用', 'Prompt Engineering', '科普传播', '内容策划'],
+    title: '大模型应用构建 — 冻土消融科普对话',
+    description: '基于通义千问 API 设计科普互动对话系统。构建知识图谱式问答路径，编写 Prompt 模板引导大模型输出通俗解释，控制专业性与可读性平衡。负责内容策划与对话流程设计。',
+    tags: ['通义千问 API', 'Prompt Engineering', '对话系统设计'],
     link: '/projects/robot-competition',
   },
 ];
 ---
 
-<Layout title="项目 · 你的名字">
+<Layout title="项目 · 卢嘉淇">
   <h1 style="margin-bottom: 32px;">项目</h1>
   <div class="project-grid">
     {allProjects.map((p) => (
