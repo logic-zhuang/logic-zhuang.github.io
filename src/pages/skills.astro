@@ -6,50 +6,37 @@ const skillCategories = [
     title: '编程语言',
     subtitle: 'LANGUAGES',
     skills: [
-      { name: 'Python', desc: '数据分析、自动化脚本、FastAPI 后端、AI 工具链开发核心主力语言。', level: 'proficient' },
-      { name: 'SQL', desc: '复杂查询优化、多表关联、数据深度清洗与高维聚合统计。', level: 'proficient' },
-      { name: 'R 语言', desc: '统计推断、假设检验、时间序列分析及多元线性回归建模。', level: 'familiar' },
-      { name: 'JavaScript', desc: 'ES6+ 规范语法、异步并发调用处理、微信小程序及交互界面开发。', level: 'familiar' },
-      { name: 'C / C++', desc: '掌握基础数据结构与算法思想，理解内存指针与底层系统交互逻辑。', level: 'basic' },
+      { name: 'Python', desc: '数据处理、自动化脚本、算法调优、机器学习应用。', level: 'proficient' },
+      { name: 'SQL / MySQL', desc: '复杂查询、多表关联、数据清洗与聚合统计。', level: 'proficient' },
     ],
   },
   {
-    title: 'AI / LLM 工程',
-    subtitle: 'CORE_FOCUS',
+    title: '数据科学与统计',
+    subtitle: 'DATA SCIENCE',
     skills: [
-      { name: 'Prompt & CoT', desc: '系统性提示词工程、小样本示例链、约束结构化 JSON 输出与防御注入。', level: 'proficient' },
-      { name: 'RAG 架构与重排', desc: '长文本切分策略、向量嵌入与混合检索（BM25 + Dense）、Reranker 重排。', level: 'proficient' },
-      { name: 'LangChain / LlamaIndex', desc: '多步骤 Agent 编排、动态记忆对话窗口管理、垂直领域知识库 pipeline 搭建。', level: 'proficient' },
-      { name: '向量数据库 (Chroma/Milvus)', desc: 'HNSW / IVF 索引构建、余弦相似度与欧式度量适配、持久化存储优化。', level: 'proficient' },
-      { name: 'Function Calling & Tools', desc: '大模型外部执行能力扩展、OpenAPI 规范驱动调用、强参数校验过滤。', level: 'proficient' },
-      { name: '评估与微调基础', desc: '掌握 Ragas 评估指标度量体系，了解 LoRA / QLoRA 阶段性微调机制。', level: 'basic' },
+      { name: 'Pandas / NumPy', desc: '数据处理与数值计算核心库。', level: 'proficient' },
+      { name: 'Matplotlib / pyecharts', desc: '数据可视化与图表绘制。', level: 'proficient' },
+      { name: 'scikit-learn', desc: '熟悉常见机器学习方法（回归、分类、聚类）。', level: 'familiar' },
+      { name: 'Stata / Excel', desc: '统计分析、回归建模、数理统计方法应用。', level: 'proficient' },
     ],
   },
   {
-    title: '自动化 / 脚本',
-    subtitle: 'WORKFLOW',
+    title: '自动化工程',
+    subtitle: 'AUTOMATION',
     skills: [
-      { name: '办公与数据自动化', desc: '基于 Python 实现复杂 Excel / 多源 PDF 批量深度解析与结构化自动报表。', level: 'proficient' },
-      { name: '爬虫与数据采集', desc: 'BeautifulSoup, Requests, Session 会话管理及常规 anti-bot 请头伪装。', level: 'familiar' },
-      { name: '定时任务与编排', desc: 'APScheduler, Crontab 轻量级脚本任务生命周期与事件触发调度监控。', level: 'familiar' },
+      { name: 'Playwright', desc: '网页自动化、元素定位、菜单树扫描与操作审核。', level: 'proficient' },
+      { name: 'pywin32 / COM', desc: 'Office / WPS / Excel / Stata 桌面应用自动化驱动。', level: 'proficient' },
+      { name: 'pytest', desc: '自动化测试与回归验证。', level: 'familiar' },
     ],
   },
   {
-    title: '工具 / 运维',
-    subtitle: 'DEVOPS',
+    title: '开发基础',
+    subtitle: 'DEVELOPMENT',
     skills: [
-      { name: 'Git / GitHub 版本控制', desc: '规范分支管理流（Git Flow）、代码冲突消解与清晰语义化 Commit。', level: 'proficient' },
-      { name: 'Postman / API 调试', desc: 'RESTful 接口测试用例构建、自动化环境切分与接口契约效验。', level: 'proficient' },
-      { name: 'Linux & Docker', desc: 'Linux 环境配置、进程监控；Dockerfile 构建与应用轻量容器化封装。', level: 'familiar' },
-    ],
-  },
-  {
-    title: '前端 / 交互',
-    subtitle: 'FRONTEND',
-    skills: [
-      { name: '微信小程序开发', desc: '视图与逻辑分离架构、原生 API 调用集成、组件化交互与发布上线全链路。', level: 'proficient' },
-      { name: 'HTML5 / Tailwind CSS', desc: '现代响应式界面布局、Flexbox / Grid 排版、原子化样式体系与无障碍规范。', level: 'familiar' },
-      { name: 'Vue.js 基础', desc: '单文件组件（SFC）结构、双向数据绑定原理与基础响应式状态流。', level: 'basic' },
+      { name: 'Git', desc: '分支管理、远程协作、版本快照管理。', level: 'proficient' },
+      { name: 'FastAPI', desc: '后端 API 开发基础。', level: 'familiar' },
+      { name: 'MySQL', desc: '数据库设计与操作。', level: 'familiar' },
+      { name: '前端基础', desc: 'HTML / CSS / JavaScript 基础。', level: 'basic' },
     ],
   },
 ];
@@ -60,25 +47,25 @@ const skillCategories = [
     <section class="hero" style="padding-bottom: 32px;">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>CAPABILITY INDEX // 2025 v1</span>
+        <span>SKILLS</span>
       </div>
-      <h1 style="font-size: 36px;">技能栈 / Technical Matrix</h1>
+      <h1 style="font-size: 36px;">技能栈</h1>
       <p class="subtitle" style="margin-top: 16px;">
-        围绕 AI 应用开发与现代软件工程构建的技能矩阵，按技术领域分类及熟练度划分。立足统计学与数理基础，深耕 LLM 落地工程实践。
+        统计学背景 + 自动化工程能力，覆盖数据处理、算法调优与工具开发全链路。
       </p>
       <div class="skills-legend" style="margin-top: 20px;">
-        <span class="legend-item"><span class="legend-dot proficient"></span>熟练 · 主力实战</span>
-        <span class="legend-item"><span class="legend-dot familiar"></span>基础 · 独立开发</span>
-        <span class="legend-item"><span class="legend-dot basic"></span>了解 · 理论通识</span>
+        <span class="legend-item"><span class="legend-dot proficient"></span>熟练 · 主力使用</span>
+        <span class="legend-item"><span class="legend-dot familiar"></span>基础 · 可独立开发</span>
+        <span class="legend-item"><span class="legend-dot basic"></span>了解 · 理论基础</span>
       </div>
     </section>
 
-    <!-- Stats Hero Card -->
+    <!-- Stats Card -->
     <div class="skills-hero-card">
       <div class="icon-box">📊</div>
       <div class="content">
-        <h3>统计学背景复合优势 <span class="level-badge proficient" style="margin-left: 8px;">Domain Synergy</span></h3>
-        <p>具备系统的概率统计与假设检验思维，能精准设计 RAG / Agent 评估闭环（Precision, Recall, MRR, MAP 及 Ragas 指标体系）。面对模型幻觉与不确定性，兼具经验工程调优与数量化严谨度。</p>
+        <h3>统计学背景 <span class="level-badge proficient" style="margin-left: 8px;">核心优势</span></h3>
+        <p>中国石油大学（北京）克拉玛依校区 统计学本科，GPA 3.58/5.0，均分 85+。具备数学分析、概率论、数理统计、回归分析、数学建模等系统训练，能从统计视角分析数据与算法效果。</p>
       </div>
     </div>
 
@@ -104,15 +91,29 @@ const skillCategories = [
       ))}
     </div>
 
-    <!-- Engineering Principles -->
-    <section class="cta-banner" style="margin-bottom: 32px;">
-      <div>
-        <h3 style="font-size: 18px;">工程准则与持续精进</h3>
-        <p style="margin-top: 8px;">坚持代码整洁（Clean Code）、注重提示词模块化管理与测试回归。目前正深入探索多智能体协作框架（AutoGPT / CrewAI）及端侧小模型推理优化。</p>
+    <!-- Honors -->
+    <section class="about-card" style="margin-bottom: 32px;">
+      <h3>🏆 荣誉奖项</h3>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px;">
+        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
+          <strong>全国大学生数学竞赛</strong> · 赛区一等奖
+        </div>
+        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
+          <strong>校级一等奖学金</strong> · 2025
+        </div>
+        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
+          <strong>正大杯全国大学生统计调研大赛</strong> · 二等奖
+        </div>
+        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
+          <strong>蓝桥杯 Python 组</strong> · 三等奖
+        </div>
+        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
+          <strong>大学英语四、六级</strong> · CET-4 / CET-6
+        </div>
+        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
+          <strong>全国计算机二级</strong> · Office
+        </div>
       </div>
-      <a href="/projects/" class="btn btn-primary">
-        <span>查看落地项目实践 →</span>
-      </a>
     </section>
   </div>
 </Layout>
