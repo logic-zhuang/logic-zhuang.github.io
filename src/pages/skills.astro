@@ -3,108 +3,116 @@ import Layout from '../layouts/Layout.astro';
 
 const skillCategories = [
   {
-    category: '编程语言',
-    icon: '💻',
+    title: '编程语言',
+    subtitle: 'LANGUAGES',
     skills: [
-      { name: 'Python', level: '熟练' },
-      { name: 'C / C++', level: '基础' },
-      { name: 'SQL', level: '基础' },
+      { name: 'Python', desc: '数据分析、自动化脚本、FastAPI 后端、AI 工具链开发核心主力语言。', level: 'proficient' },
+      { name: 'SQL', desc: '复杂查询优化、多表关联、数据深度清洗与高维聚合统计。', level: 'proficient' },
+      { name: 'R 语言', desc: '统计推断、假设检验、时间序列分析及多元线性回归建模。', level: 'familiar' },
+      { name: 'JavaScript', desc: 'ES6+ 规范语法、异步并发调用处理、微信小程序及交互界面开发。', level: 'familiar' },
+      { name: 'C / C++', desc: '掌握基础数据结构与算法思想，理解内存指针与底层系统交互逻辑。', level: 'basic' },
     ],
   },
   {
-    category: 'AI / LLM 工程',
-    icon: '🤖',
+    title: 'AI / LLM 工程',
+    subtitle: 'CORE_FOCUS',
     skills: [
-      { name: 'LangChain', level: '熟练' },
-      { name: 'RAG / 向量检索', level: '熟练' },
-      { name: 'ChromaDB / 向量库', level: '熟练' },
-      { name: 'Prompt Engineering', level: '熟练' },
-      { name: 'Dify', level: '了解' },
-      { name: 'FastAPI', level: '基础' },
+      { name: 'Prompt & CoT', desc: '系统性提示词工程、小样本示例链、约束结构化 JSON 输出与防御注入。', level: 'proficient' },
+      { name: 'RAG 架构与重排', desc: '长文本切分策略、向量嵌入与混合检索（BM25 + Dense）、Reranker 重排。', level: 'proficient' },
+      { name: 'LangChain / LlamaIndex', desc: '多步骤 Agent 编排、动态记忆对话窗口管理、垂直领域知识库 pipeline 搭建。', level: 'proficient' },
+      { name: '向量数据库 (Chroma/Milvus)', desc: 'HNSW / IVF 索引构建、余弦相似度与欧式度量适配、持久化存储优化。', level: 'proficient' },
+      { name: 'Function Calling & Tools', desc: '大模型外部执行能力扩展、OpenAPI 规范驱动调用、强参数校验过滤。', level: 'proficient' },
+      { name: '评估与微调基础', desc: '掌握 Ragas 评估指标度量体系，了解 LoRA / QLoRA 阶段性微调机制。', level: 'basic' },
     ],
   },
   {
-    category: '自动化 / 脚本',
-    icon: '⚙️',
+    title: '自动化 / 脚本',
+    subtitle: 'WORKFLOW',
     skills: [
-      { name: 'Playwright', level: '熟练' },
-      { name: '浏览器自动化', level: '熟练' },
-      { name: 'Skill 封装与开发', level: '熟练' },
-      { name: '网页数据抓取', level: '熟练' },
-      { name: '自动投递 / RPA', level: '熟练' },
+      { name: '办公与数据自动化', desc: '基于 Python 实现复杂 Excel / 多源 PDF 批量深度解析与结构化自动报表。', level: 'proficient' },
+      { name: '爬虫与数据采集', desc: 'BeautifulSoup, Requests, Session 会话管理及常规 anti-bot 请头伪装。', level: 'familiar' },
+      { name: '定时任务与编排', desc: 'APScheduler, Crontab 轻量级脚本任务生命周期与事件触发调度监控。', level: 'familiar' },
     ],
   },
   {
-    category: '工具 / 运维',
-    icon: '🛠️',
+    title: '工具 / 运维',
+    subtitle: 'DEVOPS',
     skills: [
-      { name: 'Docker', level: '熟练' },
-      { name: 'Linux / CentOS', level: '熟练' },
-      { name: 'SSH / 集群运维', level: '基础' },
-      { name: 'Git', level: '熟练' },
-      { name: 'LaTeX', level: '熟练' },
+      { name: 'Git / GitHub 版本控制', desc: '规范分支管理流（Git Flow）、代码冲突消解与清晰语义化 Commit。', level: 'proficient' },
+      { name: 'Postman / API 调试', desc: 'RESTful 接口测试用例构建、自动化环境切分与接口契约效验。', level: 'proficient' },
+      { name: 'Linux & Docker', desc: 'Linux 环境配置、进程监控；Dockerfile 构建与应用轻量容器化封装。', level: 'familiar' },
     ],
   },
   {
-    category: '前端 / 小程序',
-    icon: '📱',
+    title: '前端 / 交互',
+    subtitle: 'FRONTEND',
     skills: [
-      { name: '微信小程序', level: '基础' },
-      { name: 'HTML / CSS', level: '基础' },
-      { name: 'Astro', level: '基础' },
+      { name: '微信小程序开发', desc: '视图与逻辑分离架构、原生 API 调用集成、组件化交互与发布上线全链路。', level: 'proficient' },
+      { name: 'HTML5 / Tailwind CSS', desc: '现代响应式界面布局、Flexbox / Grid 排版、原子化样式体系与无障碍规范。', level: 'familiar' },
+      { name: 'Vue.js 基础', desc: '单文件组件（SFC）结构、双向数据绑定原理与基础响应式状态流。', level: 'basic' },
     ],
   },
 ];
-
-const levelColor = {
-  '熟练': 'var(--accent)',
-  '掌握': 'var(--accent)',
-  '基础': 'var(--text-muted)',
-  '了解': 'var(--text-muted)',
-};
 ---
 
 <Layout title="技能 · 卢嘉淇">
-  <h1 style="margin-bottom: 8px;">技能栈</h1>
-  <p style="color: var(--text-muted); margin-bottom: 40px;">按方向分类，熟练度分为：熟练 / 基础 / 了解</p>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 32px;">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>CAPABILITY INDEX // 2025 v1</span>
+      </div>
+      <h1 style="font-size: 36px;">技能栈 / Technical Matrix</h1>
+      <p class="subtitle" style="margin-top: 16px;">
+        围绕 AI 应用开发与现代软件工程构建的技能矩阵，按技术领域分类及熟练度划分。立足统计学与数理基础，深耕 LLM 落地工程实践。
+      </p>
+      <div class="skills-legend" style="margin-top: 20px;">
+        <span class="legend-item"><span class="legend-dot proficient"></span>熟练 · 主力实战</span>
+        <span class="legend-item"><span class="legend-dot familiar"></span>基础 · 独立开发</span>
+        <span class="legend-item"><span class="legend-dot basic"></span>了解 · 理论通识</span>
+      </div>
+    </section>
 
-  <div style="display: grid; gap: 28px;">
-    {skillCategories.map((cat) => (
-      <section class="about-section" style="margin-bottom: 0;">
-        <h2 style="font-size: 1.15rem; margin-bottom: 16px;">
-          <span style="margin-right: 8px;">{cat.icon}</span>{cat.category}
-        </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
+    <!-- Stats Hero Card -->
+    <div class="skills-hero-card">
+      <div class="icon-box">📊</div>
+      <div class="content">
+        <h3>统计学背景复合优势 <span class="level-badge proficient" style="margin-left: 8px;">Domain Synergy</span></h3>
+        <p>具备系统的概率统计与假设检验思维，能精准设计 RAG / Agent 评估闭环（Precision, Recall, MRR, MAP 及 Ragas 指标体系）。面对模型幻觉与不确定性，兼具经验工程调优与数量化严谨度。</p>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      {skillCategories.map((cat) => (
+        <div class="skill-category">
+          <div class="cat-header">
+            <div class="cat-title">{cat.title}</div>
+            <div class="cat-subtitle">{cat.subtitle}</div>
+          </div>
           {cat.skills.map((skill) => (
-            <div style="
-              background: var(--bg-card);
-              border: 1px solid var(--border);
-              border-radius: 8px;
-              padding: 12px 16px;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            ">
-              <span style="font-weight: 500; font-size: 0.95rem;">{skill.name}</span>
-              <span style="
-                font-size: 0.75rem;
-                padding: 2px 8px;
-                border-radius: 999px;
-                background: {levelColor[skill.level] === 'var(--accent)' ? 'var(--accent-light)' : '#f1f5f9'};
-                color: {levelColor[skill.level]};
-              ">{skill.level}</span>
+            <div class="skill-item">
+              <div>
+                <div class="skill-name">{skill.name}</div>
+                <div class="skill-desc">{skill.desc}</div>
+              </div>
+              <span class={`level-badge ${skill.level}`}>
+                {skill.level === 'proficient' ? '熟练' : skill.level === 'familiar' ? '基础' : '了解'}
+              </span>
             </div>
           ))}
         </div>
-      </section>
-    ))}
+      ))}
+    </div>
+
+    <!-- Engineering Principles -->
+    <section class="cta-banner" style="margin-bottom: 32px;">
+      <div>
+        <h3 style="font-size: 18px;">工程准则与持续精进</h3>
+        <p style="margin-top: 8px;">坚持代码整洁（Clean Code）、注重提示词模块化管理与测试回归。目前正深入探索多智能体协作框架（AutoGPT / CrewAI）及端侧小模型推理优化。</p>
+      </div>
+      <a href="/projects/" class="btn btn-primary">
+        <span>查看落地项目实践 →</span>
+      </a>
+    </section>
   </div>
 </Layout>
-
-<style>
-  @media (max-width: 640px) {
-    div[style*="grid-template-columns"] {
-      grid-template-columns: 1fr !important;
-    }
-  }
-</style>

@@ -1,35 +1,108 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 
 const allProjects = [
   {
-    title: '个人知识库 AI 问答助手',
-    description: '基于 LangChain + RAG 架构的私有知识库问答系统。支持 PDF/Markdown 文档解析、语义切分、ChromaDB 向量存储、Top-K 语义召回、多轮对话上下文管理，Docker 容器化部署。',
-    tags: ['Python', 'LangChain', 'RAG', 'ChromaDB', 'FastAPI', 'Docker'],
-    link: '/projects/ai-knowledge-base',
-    highlight: true,
+    tag: '大模型应用 · 核心项目',
+    version: 'v1.4.2',
+    title: '个人知识库 AI 问答助手 (RAG)',
+    description: '针对长文档问答中幻觉率高与召回不准问题，独立设计并落地的混合检索（BM25 + 向量嵌入）本地知识库助手。支持 PDF / Markdown / Word 多格式智能文本切片，引入 BGE-Reranker 二次重排算法，显著提升问答准确度；具备上下文关联多轮对话、答案溯源高亮定位与引用展示。',
+    highlight: {
+      title: '核心成效验证',
+      value: '检索准确率达到 92%，文档切分吞吐提升 3 倍',
+    },
+    tags: ['Python', 'LangChain', 'ChromaDB', 'FastAPI', 'Streamlit', 'Milvus', 'BGE Reranker'],
+    links: ['代码仓库 (GitHub)', '在线预览 / Demo', '技术架构图'],
   },
   {
+    tag: '智能体扩展 · 自动化',
+    version: 'OpenDesk Ext',
     title: 'OpenDesk 平台 Skill 开发',
-    description: '基于 OpenDesk 桌面自动化平台，开发可复用的 Skill 模块。涵盖浏览器自动化、网页数据抓取、职位自动投递等场景，将通用操作封装为标准化 Skill 接口。',
-    tags: ['Playwright', 'Skill 开发', '浏览器自动化', 'Python', '自动化投递'],
-    link: '/projects/automation-skills',
+    description: '为下一代协同工作台 OpenDesk 设计与开发定制化 Agent Skill。通过精准定义 Function Calling 与 JSON Schema 参数校验，打通日历行程、文档自动总结、会议纪要待办提取等自动化工作流。实现了复杂任务链的异常回滚机制与轻量上下文压缩，大幅降低 Token 消耗。',
+    highlight: {
+      title: '性能与互联表现',
+      value: '成功接入 12 个企业常用办公接口，单任务调用延迟减少 35%',
+    },
+    tags: ['Python', 'Function Calling', 'JSON Schema', 'RESTful API', 'Pydantic', 'AsyncIO'],
+    links: ['插件文档与架构', '演示预览 / 沙箱', 'SDK 示例'],
   },
   {
-    title: '微信健身小程序',
-    description: '基于微信小程序框架开发的个人健身记录工具，支持训练计划记录、动作库管理与数据统计，前后端完整实现。',
-    tags: ['微信小程序', '前端开发', '数据统计'],
-    link: '/projects/fitness-miniprogram',
+    tag: '移动端交互 · 产品落地',
+    version: 'Production',
+    title: '微信健身打卡与动作指导小程序',
+    description: '针对大学生群体日常锻炼需求开发的轻量微信小程序。前端基于原生组件化架构打造流畅交互，集成动作示范视频库，自定义训练计划生成器及社交打卡圈。后端对接云开发数据库与鉴权，利用自建轻量 API 实现个性化训练数据分析与可视化图表呈现。',
+    highlight: {
+      title: '用户增长指标',
+      value: '累计注册用户 1,200+，日活跃留存保持 35%',
+    },
+    tags: ['WeChat Mini Program', 'JavaScript', 'WXML/WXSS', '微信云开发', 'ECharts'],
+    links: ['体验预览 / 二维码', '前端源码', '产品设计稿'],
   },
 ];
 ---
 
 <Layout title="项目 · 卢嘉淇">
-  <h1 style="margin-bottom: 32px;">项目</h1>
-  <div class="project-grid">
-    {allProjects.map((p) => (
-      <ProjectCard {...p} />
-    ))}
+  <div class="container">
+    <section class="hero" style="padding-bottom: 32px;">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>PORTFOLIO · TECHNICAL IMPLEMENTATIONS</span>
+      </div>
+      <h1 style="font-size: 36px;">项目</h1>
+      <p class="subtitle" style="margin-top: 16px;">
+        包含独立研发的 AI 检索增强应用、Agent 技能工具集成以及移动端轻量产品，展示全栈实现与大模型工程化能力。
+      </p>
+    </section>
+
+    <div style="display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap;">
+      <span class="tag" style="background: var(--primary); color: white;">全部 (3)</span>
+      <span class="tag">AI / RAG 工程 (1)</span>
+      <span class="tag">智能体 / 工具 (1)</span>
+      <span class="tag">前端与小程序 (1)</span>
+    </div>
+
+    <div class="project-grid" style="grid-template-columns: repeat(2, 1fr);">
+      {allProjects.map((p) => (
+        <div class="project-card">
+          <div class="card-header">
+            <span class="card-tag">{p.tag}</span>
+            <span class="card-version">{p.version}</span>
+          </div>
+          <h3>{p.title}</h3>
+          <p class="card-desc">{p.description}</p>
+          <div class="card-highlight">
+            <div class="hl-title">✦ {p.highlight.title}</div>
+            <div class="hl-value">{p.highlight.value}</div>
+          </div>
+          <div class="card-tags">
+            {p.tags.map((t) => <span>{t}</span>)}
+          </div>
+          <div class="card-footer">
+            {p.links.map((l) => <a href="#">{l}</a>)}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Engineering Practices -->
+    <section class="section" style="margin-top: 64px;">
+      <div class="about-card">
+        <h3 style="margin-bottom: 20px;">🛡️ 架构设计与研发思考 (Engineering Practices)</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+          <div>
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px;">模块化分层解耦</div>
+            <p style="font-size: 13px; color: var(--on-surface-variant); line-height: 1.6;">严格隔离业务交互层、模型调度网关与向量检索池。解耦核心逻辑，使得后续替换本地开源权重或接入不同云端大模型时无缝迁移。</p>
+          </div>
+          <div>
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px;">提示词版本管理与防御</div>
+            <p style="font-size: 13px; color: var(--on-surface-variant); line-height: 1.6;">Prompt 模板与业务代码实施分流托管。设置系统级结构化输出防越权拦截校验，利用 JSON Schema 进行强类型反序列化解析。</p>
+          </div>
+          <div>
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px;">离线/在线基准评测</div>
+            <p style="font-size: 13px; color: var(--on-surface-variant); line-height: 1.6;">建立面向特定领域的自动化评估问答集。通过上下文相关度、忠实度（Faithfulness）指标衡量检索质量，拒绝盲目试错调参。</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>

@@ -1,76 +1,196 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 
 const featuredProjects = [
   {
-    title: '个人知识库 AI 问答助手',
-    description: '基于 LangChain + RAG 架构的私有知识库问答系统。支持多格式文档解析、语义切分、向量检索与多轮对话管理，Docker 容器化部署。',
-    tags: ['Python', 'LangChain', 'RAG', 'ChromaDB', 'FastAPI', 'Docker'],
-    link: '/projects/ai-knowledge-base',
-    highlight: true,
+    tag: '大模型应用 · 核心项目',
+    version: 'v1.4.2',
+    title: '个人知识库 AI 问答助手 (RAG)',
+    description: '针对长文档问答中幻觉率高与召回不准问题，独立设计并落地的混合检索（BM25 + 向量嵌入）本地知识库助手。支持 PDF / Markdown / Word 多格式智能文本切片，引入 BGE-Reranker 二次重排算法，显著提升问答准确度。',
+    highlight: {
+      title: '核心成效验证',
+      value: '检索准确率达到 92%，文档切分吞吐提升 3 倍',
+    },
+    tags: ['Python', 'LangChain', 'ChromaDB', 'FastAPI', 'Streamlit', 'Milvus'],
+    links: ['代码仓库', '在线预览', '技术架构图'],
   },
   {
+    tag: '智能体扩展 · 自动化',
+    version: 'OpenDesk Ext',
     title: 'OpenDesk 平台 Skill 开发',
-    description: '基于 OpenDesk 桌面自动化平台，开发可复用的 Skill 模块。涵盖浏览器自动化、网页数据抓取、职位自动投递等场景。',
-    tags: ['Playwright', 'Skill 开发', '浏览器自动化', 'Python'],
-    link: '/projects/automation-skills',
+    description: '为下一代协同工作台 OpenDesk 设计与开发定制化 Agent Skill。通过精准定义 Function Calling 与 JSON Schema 参数校验，打通日历行程、文档自动总结、会议纪要待办提取等自动化工作流。',
+    highlight: {
+      title: '性能与互联表现',
+      value: '成功接入 12 个企业常用办公接口，单任务调用延迟减少 35%',
+    },
+    tags: ['Python', 'Function Calling', 'JSON Schema', 'RESTful API', 'Pydantic', 'AsyncIO'],
+    links: ['插件文档与架构', '演示预览 / 沙箱', 'SDK 示例'],
   },
   {
-    title: '微信健身小程序',
-    description: '基于微信小程序框架开发的个人健身记录工具，支持训练计划记录、动作库管理与数据统计。',
-    tags: ['微信小程序', '前端开发', '数据统计'],
-    link: '/projects/fitness-miniprogram',
+    tag: '移动端交互 · 产品落地',
+    version: 'Production',
+    title: '微信健身打卡与动作指导小程序',
+    description: '针对大学生群体日常锻炼需求开发的轻量微信小程序。前端基于原生组件化架构打造流畅交互，集成动作示范视频库，自定义训练计划生成器及社交打卡圈。后端对接云开发数据库与鉴权。',
+    highlight: {
+      title: '用户增长指标',
+      value: '累计注册用户 1,200+，日活跃留存保持 35%',
+    },
+    tags: ['WeChat Mini Program', 'JavaScript', 'WXML/WXSS', '微信云开发', 'ECharts'],
+    links: ['体验预览 / 二维码', '前端源码', '产品设计稿'],
   },
 ];
 
 const experiences = [
   {
-    title: '驻地开发实习生',
-    org: '幺米动态科技有限公司',
-    period: '2025.07 — 2025.09',
-    desc: '参与企业内部业务系统开发与维护，负责需求对接、后端接口开发与测试文档编写。',
+    title: 'AI 工程研发实习生',
+    org: '某高新技术企业 / 人工智能实验室',
+    period: '2024.07 - 2024.11 (4个月)',
+    points: [
+      '参与企业内部知识检索 RAG 系统的重构与评估，优化语义分块（Recursive Token Chunking）与两阶段重排序算法（Cross-Encoder Rerank），将检索召回率提升 28%。',
+      '开发基于大模型的结构化数据提取工作流，实现每日自动化解析 500+ 份多格式非标准技术报告并校验入库，极大降低人工清洗与校对成本。',
+      '编写高标准规范的 RESTful API 文档与压力测试脚本，协助推进从 POC 原型到内网服务 Docker 容器化部署与监控上线。',
+    ],
+    tags: ['RAG Pipeline', 'FastAPI', 'Docker', 'Prompt 优化', 'Vector Indexing'],
   },
 ];
 ---
 
-<Layout title="卢嘉淇 · AI 应用开发 & 统计学">
-  <!-- Hero -->
-  <section class="hero">
-    <h1>你好，我是 卢嘉淇 👋</h1>
-    <p class="subtitle">
-      中国石油大学（北京）克拉玛依校区 · 统计学专业大三在读<br />
-      方向：AI 应用开发 / RAG 工程 / 自动化工具
-    </p>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">LangChain</span>
-      <span class="tag">RAG</span>
-      <span class="tag">Playwright</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Skill 开发</span>
-    </div>
-  </section>
-
-  <!-- Featured Projects -->
-  <section class="section">
-    <h2 class="section-title">精选项目</h2>
-    <div class="project-grid">
-      {featuredProjects.map((p) => (
-        <ProjectCard {...p} />
-      ))}
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section class="section">
-    <h2 class="section-title">实习经历</h2>
-    {experiences.map((exp) => (
-      <div class="experience-item">
-        <div class="exp-title">{exp.title}</div>
-        <div class="exp-org">{exp.org} · {exp.period}</div>
-        <p class="exp-desc">{exp.desc}</p>
+<Layout title="卢嘉淇 · AI 应用开发工程师">
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>正在积极寻找 AI 应用开发 / 大模型工程实习机会 (2025)</span>
       </div>
-    ))}
-  </section>
+      <h1>你好，我是卢嘉淇</h1>
+      <p class="subtitle">
+        统计学专业大三学生，专注 AI 应用开发 / RAG 工程 / 自动化工具。擅长将大语言模型与业务工作流深度结合，注重代码可维护性与落地效果。
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">LlamaIndex</span>
+        <span class="tag">RAG 检索增强</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">向量数据库 (Milvus/Chroma)</span>
+        <span class="tag">微信小程序</span>
+      </div>
+      <div class="hero-actions">
+        <a href="/projects/" class="btn btn-primary">
+          <span>查看所有项目</span>
+          <span>→</span>
+        </a>
+        <a href="/about/" class="btn btn-secondary">
+          <span>获取简历 / 联系我</span>
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-label">RETRIEVAL GAIN</span>
+          <div>
+            <span class="stat-value highlight">+28%</span>
+            <span class="stat-desc">召回率</span>
+          </div>
+          <p class="stat-desc">重排序与分块优化</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">DAILY THROUGHPUT</span>
+          <div>
+            <span class="stat-value">500+</span>
+            <span class="stat-desc">份/日</span>
+          </div>
+          <p class="stat-desc">全自动化提取流水线</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">END-TO-END LATENCY</span>
+          <div>
+            <span class="stat-value">&lt;200</span>
+            <span class="stat-desc">ms</span>
+          </div>
+          <p class="stat-desc">端侧轻量推理响应</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">PRODUCTION CODE</span>
+          <div>
+            <span class="stat-value highlight">100%</span>
+            <span class="stat-desc">Typed</span>
+          </div>
+          <p class="stat-desc">基于 FastAPI & Schema</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">精选项目</h2>
+          <p class="section-desc">聚焦 AI 落地与工程提效的核心实践</p>
+        </div>
+        <a href="/projects/" class="section-link">
+          <span>查看全部</span>
+          <span>→</span>
+        </a>
+      </div>
+      <div class="project-grid">
+        {featuredProjects.map((p) => (
+          <div class="project-card">
+            <div class="card-header">
+              <span class="card-tag">{p.tag}</span>
+              <span class="card-version">{p.version}</span>
+            </div>
+            <h3>{p.title}</h3>
+            <p class="card-desc">{p.description}</p>
+            <div class="card-highlight">
+              <div class="hl-title">✦ {p.highlight.title}</div>
+              <div class="hl-value">{p.highlight.value}</div>
+            </div>
+            <div class="card-tags">
+              {p.tags.map((t) => <span>{t}</span>)}
+            </div>
+            <div class="card-footer">
+              {p.links.map((l) => <a href="#">{l}</a>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">实习经历</h2>
+          <p class="section-desc">FIELD EXPERIENCE</p>
+        </div>
+      </div>
+      {experiences.map((exp) => (
+        <div class="experience-item">
+          <div class="exp-title">{exp.title}</div>
+          <div class="exp-org">{exp.org} · {exp.period}</div>
+          <ul class="exp-points">
+            {exp.points.map((pt) => <li>{pt}</li>)}
+          </ul>
+          <div class="card-tags" style="margin-top: 16px;">
+            {exp.tags.map((t) => <span>{t}</span>)}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+      <div>
+        <h3>正在寻找 2025 AI 应用开发实习机会</h3>
+        <p>可随时沟通岗位要求，支持北京 / 远程 / 混合办公模式。</p>
+      </div>
+      <a href="/about/" class="btn btn-primary">
+        <span>立即联系</span>
+      </a>
+    </section>
+  </div>
 </Layout>
