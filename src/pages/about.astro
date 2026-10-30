@@ -1,8 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const honors = [
+  { name: '全国大学生数学竞赛', detail: '赛区一等奖' },
+  { name: '正大杯全国大学生统计调研大赛', detail: '二等奖' },
+  { name: '蓝桥杯 Python 组', detail: '三等奖' },
+  { name: '外研社“理解当代中国”笔译组', detail: '校区铜奖' },
+  { name: '校级一等奖学金', detail: '2025' },
+  { name: '三好学生', detail: '2025' },
+  { name: '英语', detail: 'CET-4 / CET-6' },
+  { name: '全国计算机二级', detail: 'Office' },
+];
+
+const courses = ['数据结构与算法', '概率论', '数理统计', '回归分析', 'Python 程序设计', '数学建模'];
 ---
 
-<Layout title="关于我 · 卢嘉淇">
+<Layout title="关于我">
   <div class="container">
     <section class="hero" style="padding-bottom: 32px;">
       <div class="hero-badge">
@@ -11,16 +24,16 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <h1 style="font-size: 36px;">关于我</h1>
       <p class="subtitle" style="margin-top: 16px;">
-        统计学本科在读，具备 AI 应用开发与自动化工程经历。擅长将实际需求转化为可落地的工具与项目，注重工程实践与可维护性。
+        统计学背景的 AI 应用开发者：从统计建模到 AI 应用工程，把实际需求转化为可落地、可验证的工具与项目。
       </p>
     </section>
 
-    <!-- Education -->
+    <!-- Education + Intro -->
     <div class="about-grid">
       <div class="about-card">
         <h3>🎓 教育背景</h3>
         <div style="margin-bottom: 12px;">
-          <div style="font-weight: 600; font-size: 16px;">中国石油大学（北京）克拉玛依校区</div>
+          <div style="font-weight: 600; font-size: 16px;">中国石油大学（北京）克拉玛依校区（211 / 双一流）</div>
           <div style="font-size: 14px; color: var(--on-surface-variant); margin-top: 4px;">统计学 · 本科 · 2024.09 - 2028.06</div>
         </div>
         <div style="background: var(--surface-container); padding: 12px 16px; border-radius: 8px; margin-bottom: 16px;">
@@ -28,35 +41,51 @@ import Layout from '../layouts/Layout.astro';
             GPA：<strong>3.58 / 5.0</strong>（百分制均分 85+ / 100）
           </div>
         </div>
-        <div style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 8px;">核心课程</div>
+        <div style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 8px;">相关课程</div>
         <div class="tags" style="margin-bottom: 16px;">
-          <span class="tag">数学分析</span>
-          <span class="tag">高等代数</span>
-          <span class="tag">概率论</span>
-          <span class="tag">数理统计</span>
-          <span class="tag">回归分析</span>
-          <span class="tag">Python 程序设计</span>
-          <span class="tag">数学建模</span>
+          {courses.map((c) => <span class="tag">{c}</span>)}
         </div>
       </div>
 
       <div class="about-card">
         <h3>📌 个人简介</h3>
         <p style="font-size: 14px; color: var(--on-surface-variant); line-height: 1.8;">
-          统计学本科（211 / 双一流），具备 AI 应用开发与自动化工程复合经历：
+          统计学本科（211 / 双一流），定位为<strong>统计学背景的 AI 应用开发者</strong>：
           <br><br>
-          • 独立开发健身打卡微信小程序，覆盖训练计划、打卡记录、数据统计全流程
+          • 独立开发 AI Agent 检索问答项目（LangGraph + RAG），落地混合检索与 Agent 流程
           <br>
-          • 独立开发 web-rip、desktop-rip 两项 Agent 自动化技能并打通分发链路
+          • 参与网页与桌面 Agent Skills 开发（web-rip / desktop-rip），技能已接入分发链路
           <br>
-          • 搭建基于 LangChain + ChromaDB 的知识库 RAG 问答系统
+          • 独立开发健身打卡微信小程序，覆盖计划、打卡、统计与账号同步全流程
           <br>
-          • 实习期间完成体育评测算法二次开发，90+ 版迭代调优
+          • 实习完成体育评测算法二次开发，支撑 90+ 版迭代调优
           <br><br>
-          熟练 Python、SQL、Linux、Git、LangChain。
+          擅长把统计思维带进 AI 工程：用数据评估算法效果、用实验驱动迭代。
+          熟练 Python、SQL、Linux、Git、LangGraph。
         </p>
       </div>
     </div>
+
+    <!-- Research Interests -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">研究兴趣</h2>
+      </div>
+      <div class="interest-grid">
+        <div class="interest-card">
+          <h3>检索增强生成（RAG）与大模型应用</h3>
+          <p>混合检索、检索评测集构建、弱证据场景下的人工确认与 Agent 恢复机制。</p>
+        </div>
+        <div class="interest-card">
+          <h3>AI 自动化与智能体（Agent）</h3>
+          <p>网页与桌面自动化技能封装、统一接口设计、复杂工作流的技能组合。</p>
+        </div>
+        <div class="interest-card">
+          <h3>统计建模与数据分析</h3>
+          <p>回归分析与统计建模、实验效果评估、以数据驱动算法调参与决策。</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Internship -->
     <section class="section">
@@ -70,10 +99,25 @@ import Layout from '../layouts/Layout.astro';
           项目背景：体育中考自动化评测系统（跳远测距、跳绳计数）
         </p>
         <ul class="exp-points">
-          <li><strong>算法二次开发</strong>：基于开源体育评测算法项目完成本地化二次开发，交付工具已投入团队日常评测使用。</li>
-          <li><strong>精度调优</strong>：持续迭代 90+ 个版本，将跳远测距精度提升至 2 厘米、跳绳计数误差控制在 2 次以内，修复特殊场景识别误判；结果经团队实测采纳。</li>
-          <li><strong>工程闭环</strong>：设计「调参 → AI 误差分析 → 自动生成新规则 → 回归验证」闭环，配合 Git 版本快照管理，失败版本留档可回溯。</li>
+          <li><strong>框架开发</strong>：搭建面向多类体育测评任务的 AI 算法自动优化框架，统一候选算法修改、评估与结果比较流程，支持计数与测距任务复用。</li>
+          <li><strong>优化机制</strong>：通过统一提示词与实验流程引导 AI 调参、分析异常样本，自动记录指标并保留评估集上最优算法版本，关联 Git 与代码快照支持回溯。</li>
+          <li><strong>应用效果</strong>：支撑跳远算法 90 余版迭代；据同事测试反馈，测距精度约 2 厘米，跳绳多数测试视频计数误差在 2 次以内。</li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Honors -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">荣誉与奖项</h2>
+      </div>
+      <div class="honor-grid">
+        {honors.map((h) => (
+          <div class="honor-item">
+            <strong>{h.name}</strong>
+            <span>{h.detail}</span>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -81,15 +125,17 @@ import Layout from '../layouts/Layout.astro';
     <section class="section">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
         <div class="about-card">
-          <h3>🎯 求职意向</h3>
+          <h3>🎯 求职与申请意向</h3>
           <div class="tags" style="margin-bottom: 16px;">
-            <span class="tag">AI 应用开发实习</span>
-            <span class="tag">数据分析实习</span>
-            <span class="tag">算法工程实习</span>
+            <span class="tag">AI 应用开发</span>
+            <span class="tag">数据分析</span>
+            <span class="tag">算法工程</span>
+            <span class="tag">研究生申请</span>
           </div>
           <div style="font-size: 14px; color: var(--on-surface-variant); line-height: 1.8;">
-            <strong>期望城市：</strong>深圳 / 广州 / 远程亦可<br>
-            <strong>到岗时间：</strong>可根据实习安排协调
+            <strong>求职方向：</strong>AI 应用开发 / 数据分析 / 算法工程（实习或就业）<br>
+            <strong>申请方向：</strong>应用统计 / 数据科学 / AI 相关研究生项目<br>
+            <strong>期望城市：</strong>深圳 / 广州 / 远程亦可
           </div>
         </div>
         <div class="about-card">
@@ -99,12 +145,12 @@ import Layout from '../layouts/Layout.astro';
             <span class="value">2374493946@qq.com</span>
           </div>
           <div class="info-row">
-            <span class="label">电话</span>
-            <span class="value">18470553619</span>
+            <span class="label">GitHub</span>
+            <span class="value"><a href="https://github.com/logic-zhuang" target="_blank" rel="noopener">github.com/logic-zhuang</a></span>
           </div>
           <div class="info-row">
-            <span class="label">GitHub</span>
-            <span class="value">github.com/logic-zhuang</span>
+            <span class="label">中文简历</span>
+            <span class="value"><a href="/resume.pdf" target="_blank" rel="noopener">resume.pdf</a></span>
           </div>
         </div>
       </div>

@@ -1,37 +1,66 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const tags = ['微信小程序', 'WXML / WXSS', 'JavaScript', 'FastAPI', '数据统计'];
 ---
 
-<Layout title="微信健身小程序 · 卢嘉淇">
-  <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
+<Layout title="训练手记 · 健身打卡小程序">
+  <a href="/projects/" class="back-link">← 返回项目列表</a>
 
-  <h1 style="margin-bottom: 8px;">微信健身小程序</h1>
-  <p style="color: var(--text-muted); margin-bottom: 32px;">个人项目</p>
+  <header class="detail-header">
+    <div class="card-tag">微信小程序</div>
+    <h1>训练手记 · 健身打卡小程序</h1>
+    <p class="detail-meta">独立开发 · 2026.09 - 至今</p>
+  </header>
 
-  <section class="about-section">
-    <h2>项目简介</h2>
+  <section class="detail-section">
+    <h2>背景与问题</h2>
     <p>
-      基于微信小程序框架开发的个人健身记录工具，用于日常训练计划管理、
-      动作记录与数据统计。解决健身过程中动作记录分散、进度不直观的问题。
+      健身过程中动作记录分散、训练进度不直观。目标是一个随时可用的训练记录工具：
+      按周规划训练、逐次记录组数与重量、长期沉淀训练日志与统计数据，
+      并支持多设备间通过账号同步记录。
     </p>
   </section>
 
-  <section class="about-section">
-    <h2>核心功能</h2>
-    <ul style="padding-left: 20px; line-height: 2;">
-      <li>训练计划记录：按部位记录训练动作、组数、重量、次数</li>
-      <li>动作库管理：自定义动作库，支持分组与分类</li>
-      <li>数据统计：训练频率、重量趋势等可视化统计</li>
-      <li>个人数据追踪：长期记录训练变化趋势</li>
+  <section class="detail-section">
+    <h2>个人贡献</h2>
+    <ul class="detail-list">
+      <li><strong>训练计划</strong>：每周训练计划，按天安排动作；支持编辑计划、调整本周日期、标记休息日。</li>
+      <li><strong>训练打卡</strong>：开始训练 / 自由训练，记录组数、重量与用时；支持草稿续练、补录补练。</li>
+      <li><strong>日志与统计</strong>：按日期与部位查看训练日志与照片；历史页统计周训练次数、完成组数与训练日。</li>
+      <li><strong>账号同步</strong>：微信登录 + 网站账号绑定，本机记录与云端同步。</li>
+      <li><strong>动作库</strong>：管理自建动作、收藏与最近使用。</li>
     </ul>
   </section>
 
-  <section class="about-section">
+  <section class="detail-section">
+    <h2>技术方案</h2>
+    <ul class="detail-list">
+      <li>微信小程序原生开发（WXML / WXSS / JavaScript），「今天 / 计划 / 我的」三大 Tab 结构。</li>
+      <li>配套 FastAPI 全栈后端：账号体系与训练记录同步接口。</li>
+      <li>本地优先 + 云端同步：未登录可本机记录，登录后同步到账号。</li>
+    </ul>
+  </section>
+
+  <section class="detail-section">
+    <h2>结果与反思</h2>
+    <p>
+      已实现从「每周计划 → 当日训练 → 历史统计 → 日志沉淀」的完整记录闭环，并支持账号同步。
+      后续方向：训练数据可视化分析、动作库与计划模板扩充、与算法评测经验结合的个性化训练建议。
+    </p>
+  </section>
+
+  <section class="detail-section">
     <h2>技术栈</h2>
     <div class="skill-list">
-      <span class="tag">微信小程序</span>
-      <span class="tag">前端开发</span>
-      <span class="tag">数据统计</span>
+      {tags.map((t) => <span class="tag">{t}</span>)}
     </div>
+  </section>
+
+  <section class="detail-section">
+    <h2>链接</h2>
+    <p>
+      🔗 GitHub: <a href="https://github.com/logic-zhuang/fitness-training-miniprogram" target="_blank" rel="noopener">github.com/logic-zhuang/fitness-training-miniprogram</a>
+    </p>
   </section>
 </Layout>

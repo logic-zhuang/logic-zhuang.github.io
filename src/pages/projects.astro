@@ -1,35 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const allProjects = [
+const projects = [
+  {
+    tag: 'AI 应用 · RAG',
+    status: '2026.09 - 至今 · 独立开发',
+    title: 'AI Agent 检索问答项目（LangGraph + RAG）',
+    summary: '私有知识库问答系统：文档切分、Chroma 向量检索与 BM25+RRF 混合检索，自建小规模评测集做检索效果对照；基于 LangGraph 实现工具调用与会话检查点，支持弱证据场景下的人工确认及恢复；提供 FastAPI 接口与 Streamlit 交互界面。',
+    detail: '/projects/ai-knowledge-base/',
+    repo: 'https://github.com/logic-zhuang/knowledge-base-rag',
+    tags: ['LangGraph', 'Chroma', 'BM25 / RRF', 'FastAPI', 'Streamlit'],
+  },
+  {
+    tag: '自动化 · Agent 技能',
+    status: '2026.08 - 2026.09 · 导师创业小组',
+    title: '网页与桌面 Agent Skills 开发（web-rip / desktop-rip）',
+    summary: '将业务操作组织为技能说明、执行脚本与配套资源，供 OpenDesk 调用；使用 Playwright 实现网页扫描与操作审核，通过 COM 驱动 Word / WPS / Excel、命令窗口驱动 Stata；另开发高校论文排版 Skill 制作器，并参与统计局自动化需求对接。',
+    detail: '/projects/automation-skills/',
+    repo: 'https://github.com/logic-zhuang/agent-skills-automation',
+    tags: ['Python', 'Playwright', 'pywin32 / COM', 'Skill 开发'],
+  },
   {
     tag: '微信小程序',
-    version: 'WeChat Mini Program',
+    status: '2026.09 - 至今 · 独立开发',
     title: '训练手记 · 健身打卡小程序',
-    description: '个人健身记录微信小程序，支持训练计划制定、训练打卡、历史记录查看、个人数据统计。包含首页、计划管理、训练记录、历史记录、个人中心等完整页面，使用微信原生框架开发。',
-    tags: ['微信小程序', 'WXML/WXSS', 'JavaScript', '前端开发', 'TabBar 导航'],
-    link: 'https://github.com/logic-zhuang/fitness-training-miniprogram',
-  },
-  {
-    tag: '自动化技能开发',
-    version: 'Agent Skills',
-    title: 'Agent 自动化技能开发',
-    description: '独立开发 web-rip、desktop-rip 等 Agent 自动化技能，覆盖网页端与桌面应用端。基于 pywin32 COM 驱动 Word / WPS / Excel / Stata 桌面自动化；用 Playwright 完成网页菜单扫描与操作审核。技能已接入分发链路。',
-    tags: ['Python', 'pywin32 / COM', 'Playwright', '桌面自动化', '网页自动化', 'Skill 开发'],
-    link: 'https://github.com/logic-zhuang/agent-skills-automation',
-  },
-  {
-    tag: 'RAG / 知识库',
-    version: 'Knowledge Base',
-    title: '知识库 RAG 问答系统',
-    description: '基于 LangChain + ChromaDB 的个人知识库问答系统，支持文档上传、向量索引、语义检索与问答。包含知识库构建脚本、数据处理与查询接口，实现从文档到问答的完整 RAG 流程。',
-    tags: ['Python', 'LangChain', 'ChromaDB', 'RAG', '向量检索', '语义搜索'],
-    link: 'https://github.com/logic-zhuang/knowledge-base-rag',
+    summary: '基于微信小程序与 FastAPI 全栈项目开发：每周训练计划、训练打卡与统计、训练日志与照片、微信登录与账号同步、动作库管理。覆盖「今天 / 计划 / 我的」三大 Tab，本地记录与云端同步。',
+    detail: '/projects/fitness-miniprogram/',
+    repo: 'https://github.com/logic-zhuang/fitness-training-miniprogram',
+    tags: ['微信小程序', 'JavaScript', 'FastAPI', '数据统计'],
   },
 ];
 ---
 
-<Layout title="项目 · 卢嘉淇">
+<Layout title="项目">
   <div class="container">
     <section class="hero" style="padding-bottom: 32px;">
       <div class="hero-badge">
@@ -38,24 +41,25 @@ const allProjects = [
       </div>
       <h1 style="font-size: 36px;">项目</h1>
       <p class="subtitle" style="margin-top: 16px;">
-        独立完成的个人项目，从前端小程序到 AI 应用开发的全栈实践。
+        AI 应用与自动化方向的真实实践。每个项目均提供详情页与可访问的 GitHub 仓库。
       </p>
     </section>
 
-    <div class="project-grid" style="grid-template-columns: 1fr;">
-      {allProjects.map((p) => (
-        <div class="project-card">
+    <div class="project-list">
+      {projects.map((p) => (
+        <div class="project-card project-card-wide">
           <div class="card-header">
             <span class="card-tag">{p.tag}</span>
-            <span class="card-version">{p.version}</span>
+            <span class="card-version">{p.status}</span>
           </div>
           <h3>{p.title}</h3>
-          <p class="card-desc">{p.description}</p>
+          <p class="card-desc">{p.summary}</p>
           <div class="card-tags">
             {p.tags.map((t) => <span>{t}</span>)}
           </div>
           <div class="card-footer">
-            <a href={p.link} target="_blank" rel="noopener">查看 GitHub 仓库 →</a>
+            <a href={p.detail}>项目详情 →</a>
+            <a href={p.repo} target="_blank" rel="noopener">GitHub 仓库 →</a>
           </div>
         </div>
       ))}

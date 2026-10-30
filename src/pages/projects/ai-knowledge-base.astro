@@ -1,59 +1,65 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const tags = ['Python', 'LangGraph', 'Chroma', 'BM25', 'RRF', 'FastAPI', 'Streamlit'];
 ---
 
-<Layout title="个人知识库 AI 问答助手 · 卢嘉淇">
-  <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
+<Layout title="AI Agent 检索问答项目（LangGraph + RAG）">
+  <a href="/projects/" class="back-link">← 返回项目列表</a>
 
-  <h1 style="margin-bottom: 8px;">个人知识库 AI 问答助手</h1>
-  <p style="color: var(--text-muted); margin-bottom: 32px;">2025 · 个人项目 · 进行中</p>
+  <header class="detail-header">
+    <div class="card-tag">AI 应用 · RAG</div>
+    <h1>AI Agent 检索问答项目（LangGraph + RAG）</h1>
+    <p class="detail-meta">独立开发 · 2026.09 - 至今</p>
+  </header>
 
-  <section class="about-section">
-    <h2>项目简介</h2>
+  <section class="detail-section">
+    <h2>背景与问题</h2>
     <p>
-      一个基于 <strong>LangChain + RAG（检索增强生成）</strong>架构的私有知识库问答系统。
-      用户上传 PDF、Markdown 等格式的文档后，系统自动进行文本切分、向量化存储，
-      并通过语义检索 + 大模型生成的方式回答用户关于文档内容的提问。
-      目标是构建一个不依赖外部云服务、可本地运行的私有知识助手。
+      需要一个不依赖外部云服务、可本地运行的私有知识库问答工具：
+      用户上传 PDF、Markdown 等文档后，系统自动切分、向量化存储，并通过语义检索 + 大模型生成回答文档内容的问题。
+      核心诉求是检索准确、流程可追溯，且当证据不足时不能盲目作答。
     </p>
   </section>
 
-  <section class="about-section">
-    <h2>技术栈</h2>
-    <div class="skill-list">
-      <span class="tag">Python</span>
-      <span class="tag">LangChain</span>
-      <span class="tag">ChromaDB</span>
-      <span class="tag">FastAPI</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Embedding 模型</span>
-      <span class="tag">Rerank</span>
-    </div>
-  </section>
-
-  <section class="about-section">
-    <h2>核心功能</h2>
-    <ul style="padding-left: 20px; line-height: 2;">
-      <li>多格式文档上传与自动解析（PDF / Markdown / TXT）</li>
-      <li>文本智能切分（按段落 + 语义边界），Embedding 向量化后持久化存储于 ChromaDB</li>
-      <li>语义相似度检索，支持 Top-K 片段召回，可配置 Rerank 重排序优化精度</li>
-      <li>多轮对话上下文管理，基于历史记录动态调整 Prompt</li>
-      <li>FastAPI 提供 RESTful 接口，前端可扩展</li>
-      <li>Docker 容器化部署，一键启动服务</li>
+  <section class="detail-section">
+    <h2>个人贡献</h2>
+    <ul class="detail-list">
+      <li><strong>检索链路</strong>：实现文档切分、Chroma 向量检索与 BM25+RRF 混合检索，使用自建小规模评测集进行检索效果对照。</li>
+      <li><strong>Agent 流程</strong>：基于 LangGraph 实现工具调用与会话检查点，支持弱证据场景下的人工确认及恢复。</li>
+      <li><strong>应用接口</strong>：实现 FastAPI 接口与 Streamlit 交互界面，编写接口及异常场景测试。</li>
     </ul>
   </section>
 
-  <section class="about-section">
-    <h2>技术选型思考</h2>
+  <section class="detail-section">
+    <h2>技术方案</h2>
+    <ul class="detail-list">
+      <li>文档切分 → Embedding 向量化 → Chroma 持久化存储，支持元数据过滤。</li>
+      <li>混合检索：向量相似度 + BM25 关键词检索，经 RRF 融合排序，提升召回质量。</li>
+      <li>LangGraph 编排 Agent：工具调用、会话检查点，弱证据时暂停并请求人工确认，可恢复继续。</li>
+      <li>FastAPI 提供 RESTful 接口，Streamlit 提供交互界面。</li>
+    </ul>
+  </section>
+
+  <section class="detail-section">
+    <h2>结果与反思</h2>
     <p>
-      向量库选择 ChromaDB 而非 FAISS，原因是 ChromaDB 原生支持持久化与元数据过滤，
-      更适合中小规模本地知识库场景；Embedding 模型选用开源轻量模型，避免对外部 API 的依赖。
-      整体架构以"本地优先、可离线运行"为设计目标。
+      以本地优先、可离线运行为设计目标；通过自建评测集持续对照检索效果，迭代检索策略。
+      后续方向：扩充评测集规模、优化混合检索权重、完善多轮对话上下文管理。
     </p>
   </section>
 
-  <section class="about-section">
-    <h2>项目链接</h2>
-    <p>🔗 GitHub: <a href="https://github.com/logic-zhuang" target="_blank" rel="noopener">github.com/logic-zhuang</a>（仓库待整理后公开）</p>
+  <section class="detail-section">
+    <h2>技术栈</h2>
+    <div class="skill-list">
+      {tags.map((t) => <span class="tag">{t}</span>)}
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <h2>链接</h2>
+    <p>
+      🔗 GitHub: <a href="https://github.com/logic-zhuang/knowledge-base-rag" target="_blank" rel="noopener">github.com/logic-zhuang/knowledge-base-rag</a>
+    </p>
   </section>
 </Layout>

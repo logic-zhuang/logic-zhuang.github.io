@@ -1,30 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const highlights = [
+  { value: '3.58 / 5.0', label: 'GPA · 百分制均分 85+' },
+  { value: '90+', label: '体育评测算法版本迭代' },
+  { value: '2cm', label: '跳远测距精度' },
+  { value: '≤2 次', label: '跳绳计数误差' },
+];
+
 const featuredProjects = [
   {
+    tag: 'AI 应用 · RAG',
+    title: 'AI Agent 检索问答项目（LangGraph + RAG）',
+    summary: '独立开发的私有知识库问答系统：文档切分、Chroma 向量检索与 BM25+RRF 混合检索，基于 LangGraph 实现工具调用与会话检查点，FastAPI 接口 + Streamlit 界面。',
+    tags: ['LangGraph', 'Chroma', 'RAG', 'FastAPI', 'Streamlit'],
+    detail: '/projects/ai-knowledge-base/',
+    repo: 'https://github.com/logic-zhuang/knowledge-base-rag',
+  },
+  {
+    tag: '自动化 · Agent 技能',
+    title: '网页与桌面 Agent Skills 开发（web-rip / desktop-rip）',
+    summary: '将业务操作组织为技能说明、执行脚本与配套资源供 OpenDesk 调用；Playwright 实现网页扫描与操作审核，COM 驱动 Word/WPS/Excel，命令窗口驱动 Stata；另开发高校论文排版 Skill 制作器。',
+    tags: ['Python', 'Playwright', 'pywin32 / COM', 'Skill 开发'],
+    detail: '/projects/automation-skills/',
+    repo: 'https://github.com/logic-zhuang/agent-skills-automation',
+  },
+  {
     tag: '微信小程序',
-    version: 'WeChat Mini Program',
     title: '训练手记 · 健身打卡小程序',
-    description: '个人健身记录微信小程序，支持训练计划制定、训练打卡、历史记录查看、个人数据统计。包含首页、计划、历史、个人中心、训练记录等完整页面。',
-    tags: ['微信小程序', 'WXML/WXSS', 'JavaScript', '前端开发'],
-    link: 'https://github.com/logic-zhuang/fitness-training-miniprogram',
+    summary: '基于微信小程序与 FastAPI 全栈项目开发：每周训练计划、训练打卡与统计、训练日志与照片、微信登录同步、动作库管理，覆盖「今天 / 计划 / 我的」三大 Tab。',
+    tags: ['微信小程序', 'JavaScript', 'FastAPI', '数据统计'],
+    detail: '/projects/fitness-miniprogram/',
+    repo: 'https://github.com/logic-zhuang/fitness-training-miniprogram',
+  },
+];
+
+const researchInterests = [
+  {
+    title: '检索增强生成（RAG）与大模型应用',
+    desc: '混合检索（向量 + BM25 + RRF）、检索评测集构建、弱证据场景下的人工确认与 Agent 恢复机制。',
   },
   {
-    tag: '自动化技能开发',
-    version: 'Agent Skills',
-    title: 'Agent 自动化技能开发',
-    description: '独立开发 web-rip、desktop-rip 等 Agent 自动化技能，覆盖网页端与桌面应用端。基于 pywin32 COM 驱动 Office/WPS/Excel/Stata 桌面自动化，用 Playwright 完成网页操作自动化。',
-    tags: ['Python', 'pywin32 / COM', 'Playwright', '桌面自动化', '网页自动化'],
-    link: 'https://github.com/logic-zhuang/agent-skills-automation',
+    title: 'AI 自动化与智能体（Agent）',
+    desc: '网页与桌面自动化技能封装、统一输入输出接口设计、复杂工作流的技能组合。',
   },
   {
-    tag: 'RAG / 知识库',
-    version: 'Knowledge Base',
-    title: '知识库 RAG 问答系统',
-    description: '基于 LangChain + ChromaDB 的个人知识库问答系统，支持文档上传、向量索引、语义检索与问答。包含知识库构建脚本、数据处理与查询接口。',
-    tags: ['Python', 'LangChain', 'ChromaDB', 'RAG', '向量检索'],
-    link: 'https://github.com/logic-zhuang/knowledge-base-rag',
+    title: '统计建模与数据分析',
+    desc: '回归分析与统计建模、实验效果评估、以数据驱动算法调参与决策。',
   },
 ];
 
@@ -34,35 +56,36 @@ const experiences = [
     org: '幺米动态科技有限公司 · 体育中考自动化评测系统',
     period: '2026.07 - 2026.08',
     points: [
-      '基于开源体育评测算法项目完成本地化二次开发，交付工具已投入团队日常评测使用。',
-      '持续迭代 90+ 个版本，将跳远测距精度提升至 2 厘米、跳绳计数误差控制在 2 次以内。',
-      '设计「调参 → AI 误差分析 → 自动生成新规则 → 回归验证」闭环，Git 版本快照管理。',
+      '搭建面向多类体育测评任务的 AI 算法自动优化框架，统一候选算法修改、评估与结果比较流程，支持计数与测距任务复用。',
+      '通过统一提示词与实验流程引导 AI 调参、分析异常样本，自动记录指标并保留评估集上最优算法版本，关联 Git 与代码快照支持回溯。',
+      '支撑跳远算法 90 余版迭代；据同事测试反馈，测距精度约 2 厘米，跳绳多数测试视频计数误差在 2 次以内。',
     ],
-    tags: ['Python', '算法调优', 'Git', '回归测试'],
   },
 ];
 ---
 
-<Layout title="卢嘉淇 · AI 应用开发工程师">
+<Layout title="卢嘉淇 · 统计学背景的 AI 应用开发者">
   <div class="container">
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-badge">
         <span class="dot"></span>
-        <span>正在寻找 AI 应用开发 / 数据分析实习机会</span>
+        <span>求职 · 研究生申请中</span>
       </div>
-      <h1>你好，我是卢嘉淇</h1>
+      <h1>卢嘉淇 <span class="hero-sub">Jiaqi Lu</span></h1>
       <p class="subtitle">
-        中国石油大学（北京）克拉玛依校区 · 统计学专业本科在读。具备算法调优与自动化工程经历，擅长将实际需求转化为可落地的工具与项目。
+        中国石油大学（北京）克拉玛依校区 · 统计学本科在读（211 / 双一流）。
+        统计学背景的 <strong>AI 应用开发者</strong>，方向聚焦 AI 应用开发、数据分析与算法工程；
+        有体育评测算法实习与 RAG、自动化技能等真实项目实践。
       </p>
       <div class="tags">
         <span class="tag">Python</span>
-        <span class="tag">SQL / MySQL</span>
-        <span class="tag">Pandas / NumPy</span>
+        <span class="tag">LangGraph / RAG</span>
+        <span class="tag">数据分析</span>
+        <span class="tag">SQL</span>
         <span class="tag">Linux</span>
-        <span class="tag">LangChain / RAG</span>
-        <span class="tag">微信小程序</span>
         <span class="tag">Git</span>
+        <span class="tag">微信小程序</span>
         <span class="tag">Playwright</span>
       </div>
       <div class="hero-actions">
@@ -70,12 +93,45 @@ const experiences = [
           <span>查看项目</span>
           <span>→</span>
         </a>
+        <a href="/resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">
+          <span>下载简历 PDF</span>
+        </a>
         <a href="/about/" class="btn btn-secondary">
           <span>关于我 / 联系我</span>
         </a>
-        <a href="/resume.pdf" class="btn btn-secondary" target="_blank">
-          <span>下载简历 PDF</span>
-        </a>
+      </div>
+      <div class="hero-contact">
+        <span>📧 2374493946@qq.com</span>
+        <span>·</span>
+        <a href="https://github.com/logic-zhuang" target="_blank" rel="noopener">GitHub: logic-zhuang</a>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar" aria-label="关键数据">
+      {highlights.map((s) => (
+        <div class="stat-item">
+          <span class="stat-value">{s.value}</span>
+          <span class="stat-desc">{s.label}</span>
+        </div>
+      ))}
+    </section>
+
+    <!-- Research Interests -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">研究兴趣</h2>
+          <p class="section-desc">面向研究生申请，基于实际项目经历</p>
+        </div>
+      </div>
+      <div class="interest-grid">
+        {researchInterests.map((r) => (
+          <div class="interest-card">
+            <h3>{r.title}</h3>
+            <p>{r.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -83,8 +139,8 @@ const experiences = [
     <section class="section">
       <div class="section-header">
         <div>
-          <h2 class="section-title">精选项目</h2>
-          <p class="section-desc">独立完成的个人项目与课程实践</p>
+          <h2 class="section-title">代表项目</h2>
+          <p class="section-desc">独立开发 / 深度参与的真实项目</p>
         </div>
         <a href="/projects/" class="section-link">
           <span>查看全部</span>
@@ -96,15 +152,15 @@ const experiences = [
           <div class="project-card">
             <div class="card-header">
               <span class="card-tag">{p.tag}</span>
-              <span class="card-version">{p.version}</span>
             </div>
             <h3>{p.title}</h3>
-            <p class="card-desc">{p.description}</p>
+            <p class="card-desc">{p.summary}</p>
             <div class="card-tags">
               {p.tags.map((t) => <span>{t}</span>)}
             </div>
             <div class="card-footer">
-              <a href={p.link} target="_blank" rel="noopener">GitHub →</a>
+              <a href={p.detail}>项目详情 →</a>
+              <a href={p.repo} target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         ))}
@@ -125,9 +181,6 @@ const experiences = [
           <ul class="exp-points">
             {exp.points.map((pt) => <li>{pt}</li>)}
           </ul>
-          <div class="card-tags" style="margin-top: 16px;">
-            {exp.tags.map((t) => <span>{t}</span>)}
-          </div>
         </div>
       ))}
     </section>
@@ -135,8 +188,8 @@ const experiences = [
     <!-- CTA Banner -->
     <section class="cta-banner">
       <div>
-        <h3>正在寻找 2025/2026 实习机会</h3>
-        <p>方向：AI 应用开发 / 数据分析 / 算法工程。可远程 / 混合办公。</p>
+        <h3>求职与研究生申请中</h3>
+        <p>方向：AI 应用开发 / 数据分析 / 算法工程（实习、就业或研究生项目）。欢迎通过邮箱或 GitHub 联系。</p>
       </div>
       <a href="/about/" class="btn btn-primary">
         <span>联系我 →</span>

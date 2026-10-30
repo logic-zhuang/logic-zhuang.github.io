@@ -8,7 +8,29 @@ interface Props {
   description?: string;
 }
 
-const { title, description = '个人网站 — AI 应用开发 / 统计学' } = Astro.props;
+const {
+  title,
+  description = '卢嘉淇 Jiaqi Lu — 统计学背景的 AI 应用开发者。中国石油大学（北京）克拉玛依校区统计学本科在读，方向：AI 应用开发、数据分析、算法工程。',
+} = Astro.props;
+
+const siteUrl = 'https://logic-zhuang.github.io';
+const pageTitle = title.includes('·') ? title : `${title} · 卢嘉淇`;
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: '卢嘉淇',
+  alternateName: 'Jiaqi Lu',
+  url: siteUrl,
+  email: 'mailto:2374493946@qq.com',
+  jobTitle: 'Statistics Undergraduate / AI Application Developer',
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: '中国石油大学（北京）克拉玛依校区',
+  },
+  alumniOf: '中国石油大学（北京）克拉玛依校区',
+  knowsAbout: ['AI 应用开发', '数据分析', '算法工程', 'RAG', 'LangGraph', 'Python', '统计学'],
+};
 ---
 
 <!doctype html>
@@ -16,15 +38,33 @@ const { title, description = '个人网站 — AI 应用开发 / 统计学' } = 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
+    <meta name="author" content="卢嘉淇" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="卢嘉淇 · Jiaqi Lu" />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
     <Header />
-    <main>
+    <main id="main-content">
       <div class="container">
         <slot />
       </div>

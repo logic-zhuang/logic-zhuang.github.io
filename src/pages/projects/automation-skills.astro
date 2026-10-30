@@ -1,49 +1,65 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const tags = ['Python', 'Playwright', 'pywin32 / COM', 'Skill 开发', '桌面自动化', '网页自动化'];
 ---
 
-<Layout title="OpenDesk 平台 Skill 开发 · 卢嘉淇">
-  <a href="/projects/" style="display: inline-block; margin-bottom: 24px; font-size: 0.9rem;">← 返回项目列表</a>
+<Layout title="网页与桌面 Agent Skills 开发（web-rip / desktop-rip）">
+  <a href="/projects/" class="back-link">← 返回项目列表</a>
 
-  <h1 style="margin-bottom: 8px;">OpenDesk 平台 Skill 开发</h1>
-  <p style="color: var(--text-muted); margin-bottom: 32px;">个人项目 · 进行中</p>
+  <header class="detail-header">
+    <div class="card-tag">自动化 · Agent 技能</div>
+    <h1>网页与桌面 Agent Skills 开发（web-rip / desktop-rip）</h1>
+    <p class="detail-meta">导师创业小组 · 2026.08 - 2026.09</p>
+  </header>
 
-  <section class="about-section">
-    <h2>项目简介</h2>
+  <section class="detail-section">
+    <h2>背景与问题</h2>
     <p>
-      基于 OpenDesk 桌面自动化平台，开发可复用的 Skill 模块。
-      将浏览器操作、网页数据抓取、重复表单填写等通用能力封装为标准化 Skill，
-      支持在不同任务场景中快速调用与组合。
+      业务中存在大量重复的网页与桌面操作（表单填写、数据抓取、软件操作等）。
+      目标是把这些操作组织为标准化、可复用的自动化技能，供 OpenDesk 等平台按需调用，
+      减少重复开发，让复杂流程可以像积木一样组合。
     </p>
   </section>
 
-  <section class="about-section">
-    <h2>开发的 Skill 类型</h2>
-    <ul style="padding-left: 20px; line-height: 2;">
-      <li><strong>浏览器自动化类</strong>：基于 Playwright 实现页面导航、元素定位、自动点击与填表</li>
-      <li><strong>数据采集类</strong>：网页内容批量抓取，结构化输出为表格或文档</li>
-      <li><strong>自动投递类</strong>：职位自动筛选与投递流程自动化</li>
-      <li><strong>工具组合类</strong>：将多个 Skill 串联成完整工作流</li>
+  <section class="detail-section">
+    <h2>个人贡献</h2>
+    <ul class="detail-list">
+      <li><strong>技能制作</strong>：负责网页与桌面自动化 Skill 的制作，将业务操作组织为技能说明、执行脚本与配套资源，供 OpenDesk 调用。</li>
+      <li><strong>执行能力</strong>：使用 Playwright 实现网页扫描与操作审核；通过 COM 驱动 Word / WPS / Excel，通过命令窗口驱动 Stata。</li>
+      <li><strong>技能制作器</strong>：开发高校论文排版 Skill 制作器，将学校格式规范、模板资源、执行脚本及检查流程组织为可复用的专用技能。</li>
+      <li><strong>业务对接</strong>：参与统计局工业财务月报与产值月报自动化需求对接，了解数据转换、分库汇总及报告生成流程；使用自制 Skill 扫描久其软件并生成界面地图。</li>
     </ul>
   </section>
 
-  <section class="about-section">
+  <section class="detail-section">
+    <h2>技术方案</h2>
+    <ul class="detail-list">
+      <li>网页侧：Playwright 驱动，实现页面导航、元素定位、操作审核与结构化输出。</li>
+      <li>桌面侧：pywin32 / COM 驱动 Office / WPS / Excel，命令窗口驱动 Stata 等专业软件。</li>
+      <li>技能封装：统一的技能说明 + 执行脚本 + 配套资源结构，支持独立调用与组合。</li>
+    </ul>
+  </section>
+
+  <section class="detail-section">
+    <h2>结果与反思</h2>
+    <p>
+      技能已接入 OpenDesk 分发链路并支撑业务对接演示；参与统计局自动化需求对接，将真实业务流程转化为可操作的自动化方案。
+      后续方向：技能评测与版本管理、更复杂的多技能组合工作流。
+    </p>
+  </section>
+
+  <section class="detail-section">
     <h2>技术栈</h2>
     <div class="skill-list">
-      <span class="tag">Playwright</span>
-      <span class="tag">Python</span>
-      <span class="tag">浏览器自动化</span>
-      <span class="tag">Skill 封装</span>
-      <span class="tag">API 调用</span>
+      {tags.map((t) => <span class="tag">{t}</span>)}
     </div>
   </section>
 
-  <section class="about-section">
-    <h2>设计思路</h2>
+  <section class="detail-section">
+    <h2>链接</h2>
     <p>
-      每个 Skill 遵循统一的输入输出接口规范，像积木一样可独立调用也可组合使用。
-      这样做的好处是：新任务不需要从零写自动化脚本，而是复用已有 Skill 快速拼装，
-      大幅减少重复开发工作。
+      🔗 GitHub: <a href="https://github.com/logic-zhuang/agent-skills-automation" target="_blank" rel="noopener">github.com/logic-zhuang/agent-skills-automation</a>
     </p>
   </section>
 </Layout>

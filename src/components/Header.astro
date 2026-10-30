@@ -9,16 +9,18 @@ const navItems = [
 ---
 
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="主导航">
     <div class="nav-brand">
-      <div class="nav-avatar">卢</div>
-      <div class="nav-name">
-        <span class="name">卢嘉淇</span>
-        <span class="title">Jiaqi Lu · AI Dev</span>
-      </div>
+      <a href="/" class="nav-brand-link" aria-label="返回首页">
+        <div class="nav-avatar">卢</div>
+        <div class="nav-name">
+          <span class="name">卢嘉淇</span>
+          <span class="title">Jiaqi Lu · AI Dev</span>
+        </div>
+      </a>
       <div class="nav-badge">
         <span class="dot"></span>
-        <span>Seeking 2025 AI Intern</span>
+        <span>求职 / 研究生申请中</span>
       </div>
     </div>
     <ul class="nav-links">
@@ -27,6 +29,7 @@ const navItems = [
           <a
             href={item.href}
             class={currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'active' : ''}
+            aria-current={currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'page' : undefined}
           >
             {item.label}
           </a>

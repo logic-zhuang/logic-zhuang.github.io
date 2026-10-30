@@ -3,71 +3,72 @@ import Layout from '../layouts/Layout.astro';
 
 const skillCategories = [
   {
-    title: '编程语言',
-    subtitle: 'LANGUAGES',
+    title: 'AI 应用',
+    subtitle: 'AI APPLICATIONS',
     skills: [
-      { name: 'Python', desc: '数据处理、自动化脚本、算法调优、RAG 应用开发。', level: 'proficient' },
-      { name: 'SQL / MySQL', desc: '复杂查询、多表关联、数据清洗与聚合统计。', level: 'proficient' },
-      { name: 'JavaScript', desc: '微信小程序开发、前端交互逻辑。', level: 'familiar' },
-    ],
-  },
-  {
-    title: 'AI 与数据科学',
-    subtitle: 'AI & DATA SCIENCE',
-    skills: [
-      { name: 'LangChain / RAG', desc: '知识库问答系统、向量检索、文档处理。', level: 'proficient' },
-      { name: 'ChromaDB', desc: '向量数据库、语义索引与检索。', level: 'proficient' },
-      { name: 'Pandas / NumPy', desc: '数据处理与数值计算核心库。', level: 'proficient' },
-      { name: 'scikit-learn', desc: '常见机器学习方法（回归、分类、聚类）。', level: 'familiar' },
-      { name: 'Stata / Excel', desc: '统计分析、回归建模、数理统计方法应用。', level: 'proficient' },
+      { name: 'LangGraph / RAG', desc: '检索增强问答：文档切分、混合检索、工具调用与会话检查点。', level: 'proficient', link: '/projects/ai-knowledge-base/', linkText: '实践项目 →' },
+      { name: 'Chroma / BM25 / RRF', desc: '向量检索与混合检索融合，自建评测集对照检索效果。', level: 'proficient', link: '/projects/ai-knowledge-base/', linkText: '实践项目 →' },
+      { name: 'FastAPI', desc: 'RESTful 接口开发，接口与异常场景测试。', level: 'familiar', link: '/projects/ai-knowledge-base/', linkText: '实践项目 →' },
     ],
   },
   {
     title: '自动化与工程',
-    subtitle: 'AUTOMATION & DEV',
+    subtitle: 'AUTOMATION & ENGINEERING',
     skills: [
-      { name: 'Playwright', desc: '网页自动化、元素定位、操作审核。', level: 'proficient' },
-      { name: 'pywin32 / COM', desc: 'Office / WPS / Excel / Stata 桌面应用自动化驱动。', level: 'proficient' },
-      { name: 'Linux', desc: '命令行操作、服务器配置、环境部署、Shell 脚本。', level: 'familiar' },
-      { name: 'Git', desc: '分支管理、远程协作、版本快照管理。', level: 'proficient' },
-      { name: 'FastAPI', desc: '后端 API 开发基础。', level: 'familiar' },
+      { name: 'Playwright', desc: '网页自动化、元素定位、操作审核。', level: 'proficient', link: '/projects/automation-skills/', linkText: '实践项目 →' },
+      { name: 'pywin32 / COM', desc: 'Word / WPS / Excel 等桌面应用自动化驱动。', level: 'proficient', link: '/projects/automation-skills/', linkText: '实践项目 →' },
+      { name: 'Git', desc: '分支管理、远程协作、版本快照管理。', level: 'proficient', link: 'https://github.com/logic-zhuang', linkText: 'GitHub →' },
+      { name: 'Linux', desc: '命令行操作、服务器配置、环境部署、Shell 脚本。', level: 'familiar', link: 'https://github.com/logic-zhuang', linkText: 'GitHub →' },
+    ],
+  },
+  {
+    title: '编程与数据',
+    subtitle: 'PROGRAMMING & DATA',
+    skills: [
+      { name: 'Python', desc: '数据处理、自动化脚本、算法调优、RAG 应用开发。', level: 'proficient', link: '/projects/ai-knowledge-base/', linkText: '实践项目 →' },
+      { name: 'SQL / MySQL', desc: '复杂查询、多表关联、数据清洗与聚合统计。', level: 'proficient', link: '/projects/ai-knowledge-base/', linkText: '实践项目 →' },
+      { name: 'Pandas / NumPy', desc: '数据处理与数值计算核心库。', level: 'proficient', link: '/projects/fitness-miniprogram/', linkText: '数据统计 →' },
+      { name: 'Stata / Excel', desc: '统计分析、回归建模、数理统计方法应用。', level: 'proficient' },
     ],
   },
   {
     title: '前端开发',
     subtitle: 'FRONTEND',
     skills: [
-      { name: '微信小程序', desc: 'WXML / WXSS / JavaScript，原生小程序开发。', level: 'proficient' },
-      { name: 'HTML / CSS', desc: '页面结构与样式设计。', level: 'proficient' },
+      { name: '微信小程序', desc: 'WXML / WXSS / JavaScript 原生开发，训练打卡小程序。', level: 'proficient', link: '/projects/fitness-miniprogram/', linkText: '实践项目 →' },
+      { name: 'HTML / CSS / JS', desc: '页面结构与样式设计，交互逻辑。', level: 'proficient' },
     ],
   },
 ];
 ---
 
-<Layout title="技能 · 卢嘉淇">
+<Layout title="技能">
   <div class="container">
     <section class="hero" style="padding-bottom: 32px;">
       <div class="hero-badge">
         <span class="dot"></span>
         <span>SKILLS</span>
       </div>
-      <h1 style="font-size: 36px;">技能栈</h1>
+      <h1 style="font-size: 36px;">技能</h1>
       <p class="subtitle" style="margin-top: 16px;">
-        统计学背景 + AI 应用开发能力，覆盖数据分析、RAG 系统、自动化工程与前端开发全链路。
+        统计学背景 + AI 应用开发。每项技能尽量关联到对应项目或成果，可点击查看实践。
       </p>
       <div class="skills-legend" style="margin-top: 20px;">
         <span class="legend-item"><span class="legend-dot proficient"></span>熟练 · 主力使用</span>
         <span class="legend-item"><span class="legend-dot familiar"></span>基础 · 可独立开发</span>
-        <span class="legend-item"><span class="legend-dot basic"></span>了解 · 理论基础</span>
       </div>
     </section>
 
-    <!-- Stats Card -->
+    <!-- Profile Card -->
     <div class="skills-hero-card">
       <div class="icon-box">📊</div>
       <div class="content">
         <h3>统计学背景 <span class="level-badge proficient" style="margin-left: 8px;">核心优势</span></h3>
-        <p>中国石油大学（北京）克拉玛依校区 统计学本科，GPA 3.58/5.0，均分 85+。具备数学分析、概率论、数理统计、回归分析、数学建模等系统训练，能从统计视角分析数据与算法效果。</p>
+        <p>
+          中国石油大学（北京）克拉玛依校区 统计学本科，GPA 3.58 / 5.0，百分制均分 85+。
+          具备数学分析、概率论、数理统计、回归分析、数学建模等系统训练，
+          能从统计视角分析数据与算法效果——这是 AI 应用与算法工程中的差异化优势。
+        </p>
       </div>
     </div>
 
@@ -80,42 +81,22 @@ const skillCategories = [
           </div>
           {cat.skills.map((skill) => (
             <div class="skill-item">
-              <div>
+              <div class="skill-main">
                 <div class="skill-name">{skill.name}</div>
                 <div class="skill-desc">{skill.desc}</div>
+                {skill.link && (
+                  <a class="skill-link" href={skill.link} target={skill.link.startsWith('http') ? '_blank' : undefined} rel={skill.link.startsWith('http') ? 'noopener' : undefined}>
+                    {skill.linkText}
+                  </a>
+                )}
               </div>
               <span class={`level-badge ${skill.level}`}>
-                {skill.level === 'proficient' ? '熟练' : skill.level === 'familiar' ? '基础' : '了解'}
+                {skill.level === 'proficient' ? '熟练' : '基础'}
               </span>
             </div>
           ))}
         </div>
       ))}
     </div>
-
-    <!-- Honors -->
-    <section class="about-card" style="margin-bottom: 32px;">
-      <h3>🏆 荣誉奖项</h3>
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px;">
-        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
-          <strong>全国大学生数学竞赛</strong> · 赛区一等奖
-        </div>
-        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
-          <strong>校级一等奖学金</strong> · 2025
-        </div>
-        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
-          <strong>正大杯全国大学生统计调研大赛</strong> · 二等奖
-        </div>
-        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
-          <strong>蓝桥杯 Python 组</strong> · 三等奖
-        </div>
-        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
-          <strong>大学英语四、六级</strong> · CET-4 / CET-6
-        </div>
-        <div style="padding: 12px; background: var(--surface-container); border-radius: 8px; font-size: 14px;">
-          <strong>全国计算机二级</strong> · Office
-        </div>
-      </div>
-    </section>
   </div>
 </Layout>
