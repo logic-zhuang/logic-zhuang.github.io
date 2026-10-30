@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const tags = ['微信小程序', 'WXML / WXSS', 'JavaScript', 'FastAPI', '数据统计'];
+const tags = ['微信小程序', 'WXML / WXSS', 'JavaScript', 'FastAPI', 'PostgreSQL', 'Playwright'];
 ---
 
 <Layout title="训练手记 · 健身打卡小程序">
@@ -16,38 +16,115 @@ const tags = ['微信小程序', 'WXML / WXSS', 'JavaScript', 'FastAPI', '数据
   <section class="detail-section">
     <h2>背景与问题</h2>
     <p>
-      健身过程中动作记录分散、训练进度不直观。目标是一个随时可用的训练记录工具：
-      按周规划训练、逐次记录组数与重量、长期沉淀训练日志与统计数据，
-      并支持多设备间通过账号同步记录。
+      健身过程中动作记录分散、训练进度不直观。目标是一个随时可用的私人训练记录工具：
+      按周规划训练、逐次记录组数与重量、长期沉淀训练日志与统计数据，并通过账号同步。
     </p>
+    <p>
+      这个项目的重点不是功能数量，而是<strong>完整的 AI 协作开发工作流</strong>：
+      从设计文档、前端实现到后端、数据库与自动化测试，每个环节都有真实产物可追溯。
+    </p>
+  </section>
+
+  <section class="detail-section">
+    <h2>制作工作流</h2>
+    <p>五步流水线：设计文档 → Stitch 前端 → Agent 后端 → 自动测试 → 人工验收。</p>
+
+    <ol class="workflow-list">
+      <li>
+        <strong>① 设计文档（ChatGPT）</strong>
+        <p>用 ChatGPT 完成产品定位、UI 交互设计与业务规则说明文档，作为整个项目的「需求基线」。</p>
+        <p class="workflow-assets">
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/FITNESS_PRODUCT_PLAN.md" target="_blank" rel="noopener">FITNESS_PRODUCT_PLAN.md</a> ·
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/DESIGN.md" target="_blank" rel="noopener">DESIGN.md</a> ·
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/docs/design/FITNESS_DAILY_FLOW.md" target="_blank" rel="noopener">每日训练闭环规格</a>
+        </p>
+      </li>
+      <li>
+        <strong>② 前端（提示词 + Google Stitch）</strong>
+        <p>把需求写成两轮 Stitch 提示词（统一视觉与核心页面 → 计划编辑/总结/照片），生成 24 页高保真设计稿与前端代码，导出后放进项目。</p>
+        <p class="workflow-assets">
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/docs/design/STITCH_PROMPT.md" target="_blank" rel="noopener">STITCH_PROMPT.md（两轮提示词）</a> ·
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/tree/main/docs/stitch/round-01" target="_blank" rel="noopener">24 页设计稿</a>
+        </p>
+      </li>
+      <li>
+        <strong>③ 后端与数据库（Agent 按全局约束实现）</strong>
+        <p>Agent 依据 <code>instruction.md</code>（项目总体说明 + 必须遵守的业务规则）设计 FastAPI 后端与 PostgreSQL 数据模型：计划模板、训练快照、版本冲突与幂等保存。</p>
+        <p class="workflow-assets">
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/docs/instruction.md" target="_blank" rel="noopener">instruction.md（全局约束）</a> ·
+          FastAPI + SQLModel + Alembic
+        </p>
+      </li>
+      <li>
+        <strong>④ 自动化测试（Agent 编写并运行）</strong>
+        <p>Agent 编写集成与回归测试，并用 Playwright 做真机尺寸（320px / 430px）界面模拟，自动发现并修复问题。</p>
+        <p class="workflow-assets">
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/tree/main/miniprogram-tests" target="_blank" rel="noopener">8 个测试文件</a> ·
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/tree/main/screenshots" target="_blank" rel="noopener">Playwright 截图</a> ·
+          85 项自动检查通过
+        </p>
+      </li>
+      <li>
+        <strong>⑤ 人工真机验收</strong>
+        <p>真实设备上验收训练闭环：每周安排 → 逐动作记录 → 提交训练 → 科学总结 → 照片日志；锁屏/后台恢复计时、草稿保留。两轮验收记录（v2 / v3）。</p>
+        <p class="workflow-assets">
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/docs/FITNESS_V2_ACCEPTANCE.md" target="_blank" rel="noopener">v2 验收</a> ·
+          <a href="https://github.com/logic-zhuang/fitness-training-miniprogram/blob/main/docs/FITNESS_V3_ACCEPTANCE.md" target="_blank" rel="noopener">v3 验收</a>
+        </p>
+      </li>
+    </ol>
+
+    <h3 class="detail-subhead">设计稿 → 真实实现的对应</h3>
+    <p class="detail-note">左侧为 Google Stitch 导出的设计稿（示例数据），右侧为按同一设计实现的真实小程序界面（真实数据）。</p>
+    <div class="shot-grid">
+      <figure class="shot-item">
+        <img src="/projects/fitness/stitch-design-home.png" alt="Stitch 设计稿：训练首页（本周进度与排程）" loading="lazy" width="320" />
+        <figcaption>Stitch 设计稿 · 训练首页</figcaption>
+      </figure>
+      <figure class="shot-item">
+        <img src="/projects/fitness/real-week-swap.png" alt="真实小程序：本周日期交换确认" loading="lazy" width="320" />
+        <figcaption>真实实现 · 本周日期交换</figcaption>
+      </figure>
+      <figure class="shot-item">
+        <img src="/projects/fitness/real-summary.png" alt="真实小程序：训练完成总结" loading="lazy" width="320" />
+        <figcaption>真实实现 · 训练完成总结</figcaption>
+      </figure>
+      <figure class="shot-item">
+        <img src="/projects/fitness/real-journal.png" alt="真实小程序：训练手记" loading="lazy" width="320" />
+        <figcaption>真实实现 · 训练手记</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="detail-section">
     <h2>个人贡献</h2>
     <ul class="detail-list">
-      <li><strong>训练计划</strong>：每周训练计划，按天安排动作；支持编辑计划、调整本周日期、标记休息日。</li>
-      <li><strong>训练打卡</strong>：开始训练 / 自由训练，记录组数、重量与用时；支持草稿续练、补录补练。</li>
-      <li><strong>日志与统计</strong>：按日期与部位查看训练日志与照片；历史页统计周训练次数、完成组数与训练日。</li>
-      <li><strong>账号同步</strong>：微信登录 + 网站账号绑定，本机记录与云端同步。</li>
-      <li><strong>动作库</strong>：管理自建动作、收藏与最近使用。</li>
+      <li><strong>工作流设计与落地</strong>：定义「文档 → Stitch → Agent → 自动测试 → 验收」流水线，并把每个环节的产物（设计稿、提示词、约束文档、测试截图）沉淀进仓库，让开发过程可复现、可验证。</li>
+      <li><strong>训练闭环</strong>：每周计划 → 开始训练 → 逐动作记录（重量/次数/时长）→ 动作完成回顾 → 提交训练 → 科学总结 → 照片日志。</li>
+      <li><strong>业务规则落地</strong>：计划模板与历史快照分离、重复完成只计一次、部分训练可保存、跨周不自动补上周、版本冲突与幂等保存。</li>
+      <li><strong>账号与数据</strong>：微信登录 + 网站账号绑定；本地优先 + 云端同步，账号隔离。</li>
     </ul>
   </section>
 
   <section class="detail-section">
     <h2>技术方案</h2>
     <ul class="detail-list">
-      <li>微信小程序原生开发（WXML / WXSS / JavaScript），「今天 / 计划 / 我的」三大 Tab 结构。</li>
-      <li>配套 FastAPI 全栈后端：账号体系与训练记录同步接口。</li>
-      <li>本地优先 + 云端同步：未登录可本机记录，登录后同步到账号。</li>
+      <li>微信小程序原生开发（WXML / WXSS / JavaScript），「今天 / 计划 / 我的」Tab 结构，身体地图与动作选择器等自定义组件。</li>
+      <li>FastAPI + PostgreSQL + SQLModel + Alembic；训练状态经 <code>/api/v1/fitness/state</code> 原子读写，快照版本 v3。</li>
+      <li>自动化：<code>miniprogram-tests/</code> 集成与回归测试（8 个文件），Playwright 以 320px / 430px 两档模拟真机并输出截图。</li>
     </ul>
   </section>
 
   <section class="detail-section">
     <h2>结果与反思</h2>
     <p>
-      已实现从「每周计划 → 当日训练 → 历史统计 → 日志沉淀」的完整记录闭环，并支持账号同步。
-      后续方向：训练数据可视化分析、动作库与计划模板扩充、与算法评测经验结合的个性化训练建议。
+      训练闭环 v3 已实现，通过 85 项自动检查与两轮验收；照片日期日志、微信登录接口已进入代码。
     </p>
+    <ul class="detail-list">
+      <li><strong>未完成</strong>：真实微信登录、手机真机联调、正式发布（需小程序后台备案的 HTTPS 服务地址）。</li>
+      <li><strong>反思</strong>：自动检查不能替代真机验收——v3 验收记录中明确区分了「自动检查通过」与「真实手机体验待验证」。</li>
+      <li><strong>后续方向</strong>：训练数据可视化分析、动作库扩充、个性化训练建议（结合体育评测算法实习经验）。</li>
+    </ul>
   </section>
 
   <section class="detail-section">
@@ -64,3 +141,59 @@ const tags = ['微信小程序', 'WXML / WXSS', 'JavaScript', 'FastAPI', '数据
     </p>
   </section>
 </Layout>
+
+<style>
+  .workflow-list {
+    padding-left: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+  .workflow-list > li {
+    background: var(--surface, #fff);
+    border: 1px solid var(--border, #e0e0e0);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+  .workflow-list > li > strong {
+    font-size: 1.02rem;
+  }
+  .workflow-list > li p {
+    margin: 0.4rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #555);
+  }
+  .workflow-assets {
+    font-size: 0.9rem;
+  }
+  .detail-subhead {
+    margin: 1.5rem 0 0.25rem;
+  }
+  .detail-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #555);
+    margin: 0.25rem 0 1rem;
+  }
+  .shot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+  }
+  .shot-item {
+    margin: 0;
+  }
+  .shot-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border, #e0e0e0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  .shot-item figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #555);
+    text-align: center;
+  }
+</style>
