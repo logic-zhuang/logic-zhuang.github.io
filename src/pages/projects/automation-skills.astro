@@ -17,7 +17,7 @@ const tags = ['Python', 'Playwright', 'pywin32 / COM', 'Skill 开发', '桌面�
     <h2>背景与问题</h2>
     <p>
       业务中存在大量重复的网页与桌面操作（表单填写、数据抓取、软件操作等）。
-      目标是把这些操作组织为标准化、可复用的自动化技能，供 OpenDesk 等平台按需调用，
+      目标是把这些操作组织为标准化、可复用的自动化技能，配置到团队的 OpenDesk 应用中按需调用，
       减少重复开发，让复杂流程可以像积木一样组合。
     </p>
   </section>
@@ -44,9 +44,13 @@ const tags = ['Python', 'Playwright', 'pywin32 / COM', 'Skill 开发', '桌面�
   <section class="detail-section">
     <h2>结果与反思</h2>
     <p>
-      技能已接入 OpenDesk 分发链路并支撑业务对接演示；参与统计局自动化需求对接，将真实业务流程转化为可操作的自动化方案。
-      后续方向：技能评测与版本管理、更复杂的多技能组合工作流。
+      技能已配置到团队的 OpenDesk 应用中运行，并通过团队 OpenWorker 开放平台（skill 分发仓库）发布，可从开放平台下载安装；
+      参与统计局工业财务月报与产值月报自动化需求对接，将真实业务流程转化为可操作的自动化方案。
     </p>
+    <ul class="detail-list">
+      <li><strong>落地路径</strong>：开发仓 → 团队开放平台分发仓 → OpenDesk 应用调用，形成完整的技能生产与分发链路。</li>
+      <li><strong>后续方向</strong>：技能评测与版本管理、更复杂的多技能组合工作流。</li>
+    </ul>
   </section>
 
   <section class="detail-section">
@@ -59,7 +63,11 @@ const tags = ['Python', 'Playwright', 'pywin32 / COM', 'Skill 开发', '桌面�
   <section class="detail-section">
     <h2>链接</h2>
     <p>
-      🔗 GitHub: <a href="https://github.com/logic-zhuang/agent-skills-automation" target="_blank" rel="noopener">github.com/logic-zhuang/agent-skills-automation</a>
+      🔗 GitHub 源码: <a href="https://github.com/logic-zhuang/agent-skills-automation" target="_blank" rel="noopener">github.com/logic-zhuang/agent-skills-automation</a>
+      <br>
+      🔗 技能源码（Gitee 开发仓）: <a href="https://gitee.com/lu-family-treasure/desk" target="_blank" rel="noopener">gitee.com/lu-family-treasure/desk</a>
+      <br>
+      🔗 团队开放平台（skill 分发仓，可下载安装）: <a href="https://gitee.com/cupk-gold-rock_1/skill" target="_blank" rel="noopener">gitee.com/cupk-gold-rock_1/skill</a>
     </p>
   </section>
 </Layout>
