@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const highlights = [
-  { value: '3.58 / 5.0', label: 'GPA · 百分制均分 85+' },
-  { value: '90+', label: '体育评测算法版本迭代' },
-  { value: '2cm', label: '跳远测距精度' },
-  { value: '≤2 次', label: '跳绳计数误差' },
+const honors = [
+  { name: '全国大学生数学竞赛', detail: '赛区一等奖' },
+  { name: '正大杯统计调研大赛', detail: '二等奖' },
+  { name: '蓝桥杯 Python 组', detail: '三等奖' },
+  { name: '校级一等奖学金', detail: '2025' },
+  { name: '三好学生', detail: '2025' },
 ];
 
 const featuredProjects = [
@@ -74,7 +75,7 @@ const experiences = [
       </div>
       <h1>卢嘉淇 <span class="hero-sub">Jiaqi Lu</span></h1>
       <p class="subtitle">
-        中国石油大学（北京）克拉玛依校区 · 统计学本科在读（211 / 双一流）。
+        中国石油大学（北京）克拉玛依校区 · 统计学本科在读（211 / 双一流），GPA 3.58/5.0（百分制均分 85+）。
         统计学背景的 <strong>AI 应用开发者</strong>，方向聚焦 AI 应用开发、数据分析与算法工程；
         有体育评测算法实习与 RAG、自动化技能等真实项目实践。
       </p>
@@ -107,14 +108,26 @@ const experiences = [
       </div>
     </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar" aria-label="关键数据">
-      {highlights.map((s) => (
-        <div class="stat-item">
-          <span class="stat-value">{s.value}</span>
-          <span class="stat-desc">{s.label}</span>
+    <!-- Honors -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">荣誉与奖项</h2>
+          <p class="section-desc">竞赛与奖学金（完整列表见关于页）</p>
         </div>
-      ))}
+        <a href="/about/" class="section-link">
+          <span>关于我</span>
+          <span>→</span>
+        </a>
+      </div>
+      <div class="honor-grid">
+        {honors.map((h) => (
+          <div class="honor-item">
+            <strong>{h.name}</strong>
+            <span>{h.detail}</span>
+          </div>
+        ))}
+      </div>
     </section>
 
     <!-- Research Interests -->
